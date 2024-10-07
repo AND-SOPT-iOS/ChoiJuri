@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         addViews()
     }
     
-    func initAttributes() {
+    private func initAttributes() {
         titleLabel = {
             let label = UILabel(frame: CGRect(origin: CGPoint(x: 130, y: 80), size: CGSize(width: 150, height: 100)))
             label.text = "네비게이션"
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         }()
     }
     
-    func addViews() {
+    private func addViews() {
         [titleLabel, imageView, nextButton, changeButton, titleTextField, contentTextField].forEach {
             view.addSubview($0)
         }

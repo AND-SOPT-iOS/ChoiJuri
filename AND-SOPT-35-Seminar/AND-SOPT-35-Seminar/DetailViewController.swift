@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray3
+        view.backgroundColor = .systemBackground
         
         initAttributes()
         addViews()
@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         button = {
             let button = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
             button.setTitle("이전 화면으로", for: .normal)
-            button.tintColor = .darkGray
+            button.backgroundColor = .darkGray
             button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return button
         }()
