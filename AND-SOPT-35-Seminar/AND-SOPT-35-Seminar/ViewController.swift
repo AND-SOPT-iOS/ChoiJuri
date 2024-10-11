@@ -11,12 +11,12 @@ class ViewController: UIViewController {
     
     //MARK: - Components
     
-    private var titleLabel = UILabel()
+    private lazy var titleLabel = UILabel()
     private lazy var imageView = UIImageView()
     private lazy var nextButton = UIButton()
     private lazy var changeButton = UIButton()
-    private var titleTextField = UITextField()
-    private var contentTextField = UITextField()
+    private lazy var titleTextField = UITextField()
+    private lazy var contentTextField = UITextField()
     
     
     private var isNavigation = true

@@ -10,8 +10,8 @@ import UIKit
 class DetailViewController: UIViewController {
     
     private lazy var button = UIButton()
-    private var titleLabel = UILabel()
-    private var contentLabel = UILabel()
+    private lazy var titleLabel = UILabel()
+    private lazy var contentLabel = UILabel()
     
     private var receivedTitleText: String?
     private var receivedContentText: String?
