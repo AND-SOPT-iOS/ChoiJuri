@@ -7,50 +7,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
     
     //MARK: - Components
     
     private var scrollView = UIScrollView()
     private var contentStackView = UIStackView()
     
-    private var titleStackView = UIStackView()
+    private var titleView = TitleView()
     
-    private var thumbnailImageView = UIImageView()
+    private var divider = UIView()
     
-    private var titleLabelStackView = UIStackView()
-    private var titleLabel = UILabel()
-    private var subtitleLabel = UILabel()
-    private var titleButtonStackView = UIStackView()
-    private var openButton = UIButton()
-    private var shareButton = UIButton()
     
-    private var summaryStackView = UIStackView()
-    private var avgStackView = UIStackView()
-    private var avgTitleLabel = UILabel()
-    private var avgNumLabel = UILabel()
-    private var avgStarLabel = UILabel()
-    
-    private var prizeStackView = UIStackView()
-    private var prizeTitleLabel = UILabel()
-    private var prizeImageView = UIImageView()
-    private var prizeLabel = UILabel()
-    
-    private var ageStackView = UIStackView()
-    private var ageTitleLabel = UILabel()
-    private var ageNumLabel = UILabel()
-    private var ageLabel = UILabel()
     
     private var newStackView = UIStackView()
-    
     private var newTitleStackView = UIStackView()
     private var newTitleLabel = UILabel()
     private var versionButton = UIButton()
-    
     private var newSubTitleStackView = UIStackView()
     private var newVersionLabel = UILabel()
     private var newDateLabel = UILabel()
-    
     private var newDescriptionLabel = UILabel()
     
     private var previewStackView = UIStackView()
@@ -68,11 +44,9 @@ class ViewController: UIViewController {
     private var developerMoreButton = UIButton()
     
     private var reviewStackView = UIStackView()
-    
     private var reviewTitleStackView = UIStackView()
     private var reviewTitleLabel = UILabel()
     private var reviewMoreButton = UIButton()
-    
     private var reviewScoreStackView = UIStackView()
     private var reviewNumLabel = UILabel()
     private var reviewPerfectLabel = UILabel()
@@ -86,15 +60,12 @@ class ViewController: UIViewController {
     private var tapStarLabel = UILabel()
     
     private var reviewContentStackView = UIStackView()
-    
     private var reviewContentTitleStackView = UIStackView()
     private var reviewContentTitleLabel = UILabel()
     private var reviewContentDateLabel = UILabel()
-    
     private var reviewContentStarStackView = UIStackView()
     private var reviewContentStarLabel = UILabel()
     private var reviewWriterLabel = UILabel()
-    
     private var reviewContentLabel = UILabel()
     
     private var reviewWriteStackView = UIStackView()
@@ -105,16 +76,48 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        
         initAttributes()
         addViews()
+        setLayout()
     }
     
-    private func initAttributes() {
-        
+    override func initAttributes() {
+        scrollView.do {
+            $0.showsVerticalScrollIndicator = false
+        }
+        contentStackView.do {
+            $0.axis = .vertical
+            $0.spacing = 10
+        }
+        divider.do {
+            $0.backgroundColor = .systemGray
+        }
     }
     
-    private func addViews() {
+    override func addViews() {
+        view.addSubview(scrollView)
+        scrollView.addSubviews(contentStackView)
+        contentStackView.addArrangedSubViews(titleView, divider)
+    }
+    
+    override func setLayout() {
+        let safeArea = view.safeAreaLayoutGuide
         
+        scrollView.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(safeArea).inset(20)
+            $0.height.equalTo(1000)
+        }
+        contentStackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        titleView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.top.equalTo(contentStackView)
+            $0.left.right.equalTo(contentStackView)
+        }
+//        divider.snp.makeConstraints {
+//            $0.height.equalTo(1)
+//            $0.top.equalTo(titleView.snp.bottom)
+//        }
     }
 }
