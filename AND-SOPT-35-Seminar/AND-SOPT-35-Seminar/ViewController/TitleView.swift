@@ -44,12 +44,12 @@ class TitleView: BaseView {
         }
         titleLabel.do {
             $0.text = "토스"
-            $0.font = .systemFont(ofSize: 20)
+            $0.font = .systemFont(ofSize: 22, weight: .bold)
         }
         subtitleLabel.do {
             $0.text = "금융이 쉬워진다"
             $0.textColor = .systemGray
-            $0.font = .systemFont(ofSize: 14)
+            $0.font = .systemFont(ofSize: 16)
         }
         titleButtonStackView.do {
             $0.axis = .horizontal
@@ -73,7 +73,6 @@ class TitleView: BaseView {
     
     override func setLayout() {
         titleStackView.snp.makeConstraints {
-            $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
         }
         thumbnailImageView.snp.makeConstraints {

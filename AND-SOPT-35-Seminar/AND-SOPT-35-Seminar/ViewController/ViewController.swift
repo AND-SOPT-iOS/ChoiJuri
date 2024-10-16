@@ -15,26 +15,14 @@ class ViewController: BaseViewController {
     private var contentStackView = UIStackView()
     
     private var titleView = TitleView()
+    private var firstDivider = UIView()
+    private var informationView = InformationView()
+    private var secondDivider = UIView()
+    private var newVersionView = NewVersionView()
+    private var thirdDivider = UIView()
+    private var previewView = PreviewView()
     
-    private var divider = UIView()
     
-    
-    
-    private var newStackView = UIStackView()
-    private var newTitleStackView = UIStackView()
-    private var newTitleLabel = UILabel()
-    private var versionButton = UIButton()
-    private var newSubTitleStackView = UIStackView()
-    private var newVersionLabel = UILabel()
-    private var newDateLabel = UILabel()
-    private var newDescriptionLabel = UILabel()
-    
-    private var previewStackView = UIStackView()
-    private var previewLabel = UILabel()
-    private var previewImageView = UIImageView()
-    private var previewBottomStackView = UIStackView()
-    private var phoneImageView = UIImageView()
-    private var phoneLabel = UILabel()
     
     private var descriptionStackView = UIStackView()
     private var descriptionLabel = UILabel()
@@ -87,37 +75,61 @@ class ViewController: BaseViewController {
         }
         contentStackView.do {
             $0.axis = .vertical
-            $0.spacing = 10
+            $0.spacing = 5
         }
-        divider.do {
-            $0.backgroundColor = .systemGray
+        firstDivider.do {
+            $0.backgroundColor = .systemGray3
+        }
+        secondDivider.do {
+            $0.backgroundColor = .systemGray3
+        }
+        thirdDivider.do {
+            $0.backgroundColor = .systemGray3
         }
     }
     
     override func addViews() {
         view.addSubview(scrollView)
         scrollView.addSubviews(contentStackView)
-        contentStackView.addArrangedSubViews(titleView, divider)
+        contentStackView.addArrangedSubViews(titleView, firstDivider, informationView, secondDivider, newVersionView, thirdDivider, previewView)
     }
     
     override func setLayout() {
         let safeArea = view.safeAreaLayoutGuide
         
         scrollView.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(safeArea).inset(20)
-            $0.height.equalTo(1000)
+            $0.top.leading.trailing.equalTo(safeArea).inset(20)
+            $0.bottom.equalTo(safeArea).offset(10)
         }
         contentStackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+            $0.height.equalTo(scrollView)
         }
         titleView.snp.makeConstraints {
             $0.width.equalToSuperview()
-            $0.top.equalTo(contentStackView)
+            $0.height.equalTo(130)
             $0.left.right.equalTo(contentStackView)
         }
-//        divider.snp.makeConstraints {
-//            $0.height.equalTo(1)
-//            $0.top.equalTo(titleView.snp.bottom)
-//        }
+        firstDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        informationView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(90)
+        }
+        secondDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        newVersionView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(160)
+        }
+        thirdDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        previewView.snp.makeConstraints {
+            $0.height.equalTo(300)
+        }
     }
 }
