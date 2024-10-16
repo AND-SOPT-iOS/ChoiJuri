@@ -18,8 +18,8 @@ class TitleView: BaseView {
     private var openButton = UIButton()
     private var shareButton = UIButton()
     
-    private let buttonConfig = UIButton.Configuration.filled()
-    
+    private var buttonConfig = UIButton.Configuration.filled()
+
     init() {
         super.init(frame: .zero)
     }
@@ -29,7 +29,8 @@ class TitleView: BaseView {
     }
     
     override func initAttributes() {
-
+        buttonConfig.cornerStyle = .capsule
+        
         titleStackView.do {
             $0.axis = .horizontal
             $0.spacing = 15
@@ -60,7 +61,8 @@ class TitleView: BaseView {
             $0.configuration = buttonConfig
         }
         shareButton.do {
-            $0.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+            let image = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
+            $0.setImage(UIImage(systemName: "square.and.arrow.up", withConfiguration: image), for: .normal)
         }
     }
     

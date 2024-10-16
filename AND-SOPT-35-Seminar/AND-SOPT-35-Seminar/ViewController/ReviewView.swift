@@ -100,7 +100,7 @@ class ReviewView: BaseView {
         }
         tapLabel.do {
             $0.text = "탭하여 평가하기:"
-            $0.textColor = .systemGray3
+            $0.textColor = .systemGray2
         }
         tapStarLabel.do {
             $0.text = "☆ ☆ ☆ ☆ ☆"
@@ -112,6 +112,9 @@ class ReviewView: BaseView {
             $0.axis = .vertical
             $0.backgroundColor = .systemGray5
             $0.spacing = 5
+            $0.layer.cornerRadius = 5
+            $0.layer.masksToBounds = true
+            $0.clipsToBounds = true
         }
         reviewContentTitleStackView.do {
             $0.axis = .horizontal
@@ -119,7 +122,7 @@ class ReviewView: BaseView {
         reviewContentStarStackView.do {
             $0.axis = .horizontal
         }
-        reviewTitleLabel.do {
+        reviewContentTitleLabel.do {
             $0.text = "최주리"
             $0.font = .systemFont(ofSize: 18, weight: .bold)
         }
@@ -144,12 +147,12 @@ class ReviewView: BaseView {
         }
         reviewWriteButton.do {
             $0.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
-            $0.setTitle("리뷰 작성", for: .normal)
+            $0.setTitle(" 리뷰 작성", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
         }
         backupButton.do {
             $0.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-            $0.setTitle("앱 지원", for: .normal)
+            $0.setTitle(" 앱 지원", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
         }
     }
@@ -162,7 +165,7 @@ class ReviewView: BaseView {
         starStackView.addArrangedSubViews(starImageView, allStarLabel)
         tapStackView.addArrangedSubViews(tapLabel, UIView(), tapStarLabel)
         reviewContentStackView.addArrangedSubViews(reviewContentTitleStackView, reviewContentStarStackView, reviewContentLabel)
-        reviewContentTitleStackView.addArrangedSubViews(reviewTitleLabel, reviewContentDateLabel)
+        reviewContentTitleStackView.addArrangedSubViews(reviewContentTitleLabel, reviewContentDateLabel)
         reviewContentStarStackView.addArrangedSubViews(reviewContentStarLabel, UIView(), reviewWriterLabel)
         reviewWriteStackView.addArrangedSubViews(reviewWriteButton, UIView(), backupButton)
     }
@@ -171,7 +174,7 @@ class ReviewView: BaseView {
             $0.width.equalToSuperview()
         }
         reviewTitleStackView.snp.makeConstraints {
-            $0.height.equalTo(20)
+            $0.height.equalTo(30)
         }
         reviewScoreStackView.snp.makeConstraints {
             $0.height.equalTo(90)
