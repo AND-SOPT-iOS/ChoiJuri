@@ -11,6 +11,15 @@ import Then
 
 class BaseViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .systemBackground
+        initAttributes()
+        addViews()
+        setLayout()
+    }
+    
     func initAttributes() { }
     
     func addViews() { }

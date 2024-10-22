@@ -12,7 +12,7 @@ class NewVersionView: BaseView {
     private var newStackView = UIStackView()
     private var newTitleStackView = UIStackView()
     private var newTitleLabel = UILabel()
-    private var versionRecordButton = UIButton()
+    var versionRecordButton = UIButton()
     private var newSubTitleStackView = UIStackView()
     private var newVersionLabel = UILabel()
     private var newDateLabel = UILabel()
@@ -41,6 +41,7 @@ class NewVersionView: BaseView {
         versionRecordButton.do {
             $0.setTitle("버전 기록", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
+            
         }
         newSubTitleStackView.do {
             $0.axis = .horizontal

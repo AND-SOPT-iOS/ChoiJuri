@@ -38,6 +38,9 @@ class PreviewView: BaseView {
         previewImageView.do {
             $0.image = .preview
             $0.contentMode = .scaleAspectFit
+            $0.layer.cornerRadius = 50
+            $0.layer.masksToBounds = true
+            $0.clipsToBounds = true
         }
         previewBottomStackView.do {
             $0.axis = .horizontal

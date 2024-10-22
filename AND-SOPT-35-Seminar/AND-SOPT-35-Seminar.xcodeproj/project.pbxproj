@@ -20,6 +20,9 @@
 		CB051BBB2CBFCBBB00A3B223 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BBA2CBFCBBB00A3B223 /* PreviewView.swift */; };
 		CB051BBD2CC0008000A3B223 /* DescriptionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BBC2CC0008000A3B223 /* DescriptionVIew.swift */; };
 		CB051BBF2CC00CAC00A3B223 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BBE2CC00CAC00A3B223 /* ReviewView.swift */; };
+		CB051BC22CC01F4400A3B223 /* VersionRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BC12CC01F4400A3B223 /* VersionRecordViewController.swift */; };
+		CB051BC42CC023B800A3B223 /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BC32CC023B800A3B223 /* ReviewListViewController.swift */; };
+		CB051BC62CC0242C00A3B223 /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BC52CC0242C00A3B223 /* ReviewWriteViewController.swift */; };
 		CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */; };
 		CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */; };
 		CB2E9CF02CB101C6007D0B9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEF2CB101C6007D0B9B /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 		CB051BBA2CBFCBBB00A3B223 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		CB051BBC2CC0008000A3B223 /* DescriptionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionVIew.swift; sourceTree = "<group>"; };
 		CB051BBE2CC00CAC00A3B223 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		CB051BC12CC01F4400A3B223 /* VersionRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionRecordViewController.swift; sourceTree = "<group>"; };
+		CB051BC32CC023B800A3B223 /* ReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
+		CB051BC52CC0242C00A3B223 /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		CB2E9CE82CB101C6007D0B9B /* AND-SOPT-35-Seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AND-SOPT-35-Seminar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,14 +90,10 @@
 		CB051BAB2CBF7D8100A3B223 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CB2E9CEF2CB101C6007D0B9B /* ViewController.swift */,
-				CB2E9CFF2CB114A6007D0B9B /* DetailViewController.swift */,
-				CB051BAF2CBF802800A3B223 /* TitleView.swift */,
-				CB051BB62CBF927D00A3B223 /* InformationView.swift */,
-				CB051BB82CBFC1E400A3B223 /* NewVersionView.swift */,
-				CB051BBA2CBFCBBB00A3B223 /* PreviewView.swift */,
-				CB051BBC2CC0008000A3B223 /* DescriptionVIew.swift */,
-				CB051BBE2CC00CAC00A3B223 /* ReviewView.swift */,
+				CB051BC02CC01F2C00A3B223 /* DetailView */,
+				CB051BC12CC01F4400A3B223 /* VersionRecordViewController.swift */,
+				CB051BC32CC023B800A3B223 /* ReviewListViewController.swift */,
+				CB051BC52CC0242C00A3B223 /* ReviewWriteViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -113,6 +115,21 @@
 				CB051BB42CBF82FC00A3B223 /* BaseView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CB051BC02CC01F2C00A3B223 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				CB2E9CEF2CB101C6007D0B9B /* ViewController.swift */,
+				CB2E9CFF2CB114A6007D0B9B /* DetailViewController.swift */,
+				CB051BAF2CBF802800A3B223 /* TitleView.swift */,
+				CB051BB62CBF927D00A3B223 /* InformationView.swift */,
+				CB051BB82CBFC1E400A3B223 /* NewVersionView.swift */,
+				CB051BBA2CBFCBBB00A3B223 /* PreviewView.swift */,
+				CB051BBC2CC0008000A3B223 /* DescriptionVIew.swift */,
+				CB051BBE2CC00CAC00A3B223 /* ReviewView.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		CB2E9CDF2CB101C6007D0B9B = {
@@ -225,8 +242,10 @@
 				CB2E9CF02CB101C6007D0B9B /* ViewController.swift in Sources */,
 				CB051BBF2CC00CAC00A3B223 /* ReviewView.swift in Sources */,
 				CB051BBD2CC0008000A3B223 /* DescriptionVIew.swift in Sources */,
+				CB051BC22CC01F4400A3B223 /* VersionRecordViewController.swift in Sources */,
 				CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */,
 				CB051BB92CBFC1E400A3B223 /* NewVersionView.swift in Sources */,
+				CB051BC42CC023B800A3B223 /* ReviewListViewController.swift in Sources */,
 				CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */,
 				CB051BB02CBF802800A3B223 /* TitleView.swift in Sources */,
 				CB051BBB2CBFCBBB00A3B223 /* PreviewView.swift in Sources */,
@@ -234,6 +253,7 @@
 				CB051BB72CBF927D00A3B223 /* InformationView.swift in Sources */,
 				CB051BB32CBF805400A3B223 /* BaseViewController.swift in Sources */,
 				CB051BB52CBF82FC00A3B223 /* BaseView.swift in Sources */,
+				CB051BC62CC0242C00A3B223 /* ReviewWriteViewController.swift in Sources */,
 				CB2E9D002CB114A6007D0B9B /* DetailViewController.swift in Sources */,
 				CB051BAE2CBF7E1200A3B223 /* UIStackView+Extension.swift in Sources */,
 			);

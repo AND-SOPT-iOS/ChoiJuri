@@ -12,7 +12,7 @@ class ReviewView: BaseView {
     private var reviewStackView = UIStackView()
     private var reviewTitleStackView = UIStackView()
     private var reviewTitleLabel = UILabel()
-    private var reviewMoreButton = UIButton()
+    var reviewMoreButton = UIButton()
     private var reviewScoreStackView = UIStackView()
     private var reviewNumLabel = UILabel()
     private var reviewPerfectLabel = UILabel()
@@ -37,7 +37,7 @@ class ReviewView: BaseView {
     private var reviewContentLabel = UILabel()
     
     private var reviewWriteStackView = UIStackView()
-    private var reviewWriteButton = UIButton()
+    var reviewWriteButton = UIButton()
     private var backupButton = UIButton()
     
     override init(frame: CGRect) {

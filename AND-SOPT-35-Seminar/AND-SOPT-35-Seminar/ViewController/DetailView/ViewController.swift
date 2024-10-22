@@ -28,10 +28,8 @@ class ViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground
-        initAttributes()
-        addViews()
-        setLayout()
+
+        setAddTarget()
     }
     
     override func initAttributes() {
@@ -115,5 +113,29 @@ class ViewController: BaseViewController {
         reviewView.snp.makeConstraints {
             $0.height.equalTo(500)
         }
+    }
+    
+    @objc
+    func navigateToVersion() {
+        let vc = VersionRecordViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func navigateToReview() {
+        let vc = ReviewListViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func presentReviewWriteView() {
+        let vc = ReviewWriteViewController()
+        self.present(vc, animated: true)
+    }
+    
+    func setAddTarget() {
+        newVersionView.versionRecordButton.addTarget(self, action: #selector(navigateToVersion), for: .touchUpInside)
+        reviewView.reviewMoreButton.addTarget(self, action: #selector(navigateToReview), for: .touchUpInside)
+        reviewView.reviewWriteButton.addTarget(self, action: #selector(presentReviewWriteView), for: .touchUpInside)
     }
 }
