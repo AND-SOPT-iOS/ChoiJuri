@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DescriptionVIew: BaseView {
+final class DescriptionVIew: BaseView {
     
     private let descriptionStackView = UIStackView()
     private let descriptionLabel = UILabel()

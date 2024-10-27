@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PreviewView: BaseView {
+final class PreviewView: BaseView {
     
     private let previewStackView = UIStackView()
     private let previewLabel = UILabel()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DividerView: BaseView {
+final class DividerView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

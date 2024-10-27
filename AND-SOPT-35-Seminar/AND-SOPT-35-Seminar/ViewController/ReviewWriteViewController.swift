@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewWriteViewController: BaseViewController {
+final class ReviewWriteViewController: BaseViewController {
     private let containerStackView = UIStackView()
     
     private let headerStackView = UIStackView()

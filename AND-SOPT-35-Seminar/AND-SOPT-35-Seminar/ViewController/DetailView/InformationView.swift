@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InformationView: BaseView {
+final class InformationView: BaseView {
     
     private let summaryStackView = UIStackView()
     private let avgStackView = UIStackView()

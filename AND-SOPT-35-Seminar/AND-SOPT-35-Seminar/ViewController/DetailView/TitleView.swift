@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleView: BaseView {
+final class TitleView: BaseView {
     
     private let titleStackView = UIStackView()
     private let thumbnailImageView = UIImageView()

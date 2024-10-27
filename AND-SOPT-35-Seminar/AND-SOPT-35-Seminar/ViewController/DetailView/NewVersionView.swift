@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewVersionView: BaseView {
+final class NewVersionView: BaseView {
     
     private let newStackView = UIStackView()
     private let newTitleStackView = UIStackView()

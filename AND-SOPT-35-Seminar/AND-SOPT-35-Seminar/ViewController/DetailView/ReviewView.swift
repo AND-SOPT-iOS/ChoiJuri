@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewView: BaseView {
+final class ReviewView: BaseView {
     
     private let reviewStackView = UIStackView()
     private let reviewTitleStackView = UIStackView()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VersionRecordViewController: BaseViewController {
+final class VersionRecordViewController: BaseViewController {
     
     private let titleLabel = UILabel()
     

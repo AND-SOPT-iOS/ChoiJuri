@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: BaseViewController {
+final class DetailViewController: BaseViewController {
     
     private let scrollView = UIScrollView()
     private let contentStackView = UIStackView()
@@ -57,7 +57,6 @@ class DetailViewController: BaseViewController {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(scrollView)
             $0.height.greaterThanOrEqualToSuperview().priority(.low)
-//            $0.height.equalTo(10000)
         }
         titleView.snp.makeConstraints {
             $0.width.equalToSuperview()
