@@ -23,8 +23,8 @@ class InformationView: BaseView {
     private let ageNumLabel = UILabel()
     private let ageLabel = UILabel()
     
-    private let firstDivider = UIView()
-    private let secondDivider = UIView()
+    private let firstDivider = DividerView()
+    private let secondDivider = DividerView()
     
     init() {
         super.init(frame: .zero)
@@ -101,16 +101,10 @@ class InformationView: BaseView {
             $0.textColor = .systemGray
             $0.font = .systemFont(ofSize: 14)
         }
-        firstDivider.do {
-            $0.backgroundColor = .systemGray3
-        }
-        secondDivider.do {
-            $0.backgroundColor = .systemGray3
-        }
     }
     
     override func addViews() {
-        self.addSubviews(summaryStackView)
+        addSubviews(summaryStackView)
         
         summaryStackView.addArrangedSubViews(avgStackView, firstDivider, prizeStackView, secondDivider, ageStackView)
         avgStackView.addArrangedSubViews(avgTitleLabel, avgNumLabel, avgStarLabel)

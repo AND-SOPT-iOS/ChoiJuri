@@ -61,7 +61,7 @@ class NewVersionView: BaseView {
     }
     
     override func addViews() {
-        self.addSubview(newStackView)
+        addSubview(newStackView)
         newStackView.addArrangedSubViews(newTitleStackView, newSubTitleStackView, newDescriptionLabel)
         newTitleStackView.addArrangedSubViews(newTitleLabel, UIView(), versionRecordButton)
         newSubTitleStackView.addArrangedSubViews(newVersionLabel, UIView(), newDateLabel)

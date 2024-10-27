@@ -9,21 +9,19 @@ import UIKit
 
 class DetailViewController: BaseViewController {
     
-    //MARK: - Components
-    
     private let scrollView = UIScrollView()
     private let contentStackView = UIStackView()
     
     private let titleView = TitleView()
-    private let firstDivider = UIView()
+    private let firstDivider = DividerView()
     private let informationView = InformationView()
-    private let secondDivider = UIView()
+    private let secondDivider = DividerView()
     private let newVersionView = NewVersionView()
-    private let thirdDivider = UIView()
+    private let thirdDivider = DividerView()
     private let previewView = PreviewView()
-    private let fourthDivider = UIView()
+    private let fourthDivider = DividerView()
     private let descriptionView = DescriptionVIew()
-    private let fifthDivider = UIView()
+    private let fifthDivider = DividerView()
     private let reviewView = ReviewView()
     
     override func viewDidLoad() {
@@ -39,21 +37,6 @@ class DetailViewController: BaseViewController {
         contentStackView.do {
             $0.axis = .vertical
             $0.spacing = 5
-        }
-        firstDivider.do {
-            $0.backgroundColor = .systemGray3
-        }
-        secondDivider.do {
-            $0.backgroundColor = .systemGray3
-        }
-        thirdDivider.do {
-            $0.backgroundColor = .systemGray3
-        }
-        fourthDivider.do {
-            $0.backgroundColor = .systemGray3
-        }
-        fifthDivider.do {
-            $0.backgroundColor = .systemGray3
         }
     }
     

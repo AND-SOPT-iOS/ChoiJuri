@@ -21,7 +21,7 @@ class ReviewView: BaseView {
     private let allStarLabel = UILabel()
     private let reviewNumStackView = UIStackView()
     
-    private let divider = UIView()
+    private let divider = DividerView()
     
     private let tapStackView = UIStackView()
     private let tapLabel = UILabel()
@@ -92,9 +92,6 @@ class ReviewView: BaseView {
             $0.text = "8.4만개의 평가"
             $0.textColor = .systemGray
         }
-        divider.do {
-            $0.backgroundColor = .systemGray3
-        }
         tapStackView.do {
             $0.axis = .horizontal
         }
@@ -157,7 +154,7 @@ class ReviewView: BaseView {
         }
     }
     override func addViews() {
-        self.addSubview(reviewStackView)
+        addSubview(reviewStackView)
         reviewStackView.addArrangedSubViews(reviewTitleStackView, reviewScoreStackView, divider, tapStackView, reviewContentStackView, reviewWriteStackView)
         reviewTitleStackView.addArrangedSubViews(reviewTitleLabel, UIView(), reviewMoreButton)
         reviewScoreStackView.addArrangedSubViews(reviewNumStackView, starStackView)

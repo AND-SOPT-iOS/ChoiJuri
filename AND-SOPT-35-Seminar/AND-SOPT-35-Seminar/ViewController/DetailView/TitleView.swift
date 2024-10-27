@@ -67,7 +67,7 @@ class TitleView: BaseView {
     }
     
     override func addViews() {
-        self.addSubviews(titleStackView)
+        addSubviews(titleStackView)
         titleStackView.addArrangedSubViews(thumbnailImageView, titleLabelStackView)
         titleLabelStackView.addArrangedSubViews(titleLabel, subtitleLabel, UIView(), titleButtonStackView)
         titleButtonStackView.addArrangedSubViews(openButton, UIView(), UIView(), shareButton)

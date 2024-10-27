@@ -15,7 +15,7 @@ class PreviewView: BaseView {
     private let previewBottomStackView = UIStackView()
     private let phoneImageView = UIImageView()
     private let phoneLabel = UILabel()
-    private let divider = UIView()
+    private let divider = DividerView()
     
     init() {
         super.init(frame: .zero)
@@ -58,7 +58,7 @@ class PreviewView: BaseView {
     }
     
     override func addViews() {
-        self.addSubview(previewStackView)
+        addSubview(previewStackView)
         previewStackView.addArrangedSubViews(previewLabel, previewImageView, previewBottomStackView)
         previewBottomStackView.addArrangedSubViews(phoneImageView, phoneLabel)
     }
