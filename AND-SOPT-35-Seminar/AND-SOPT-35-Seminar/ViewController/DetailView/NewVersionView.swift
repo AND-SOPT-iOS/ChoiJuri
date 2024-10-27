@@ -12,11 +12,13 @@ final class NewVersionView: BaseView {
     private let newStackView = UIStackView()
     private let newTitleStackView = UIStackView()
     private let newTitleLabel = UILabel()
-    var versionRecordButton = UIButton()
+    private let versionRecordButton = UIButton()
     private let newSubTitleStackView = UIStackView()
     private let newVersionLabel = UILabel()
     private let newDateLabel = UILabel()
     private let newDescriptionLabel = UILabel()
+    
+    weak var delegate: NewVersionDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -41,7 +43,7 @@ final class NewVersionView: BaseView {
         versionRecordButton.do {
             $0.setTitle("버전 기록", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
-            
+            $0.addTarget(self, action: #selector(navigateToVersion), for: .touchUpInside)
         }
         newSubTitleStackView.do {
             $0.axis = .horizontal
@@ -78,4 +80,13 @@ final class NewVersionView: BaseView {
             $0.width.equalToSuperview()
         }
     }
+    
+    @objc
+    func navigateToVersion() {
+        delegate?.navigateToVersion()
+    }
+}
+
+protocol NewVersionDelegate: AnyObject {
+    func navigateToVersion()
 }

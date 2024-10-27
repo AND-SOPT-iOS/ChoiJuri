@@ -26,8 +26,6 @@ final class DetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setAddTarget()
     }
     
     override func initAttributes() {
@@ -37,6 +35,12 @@ final class DetailViewController: BaseViewController {
         contentStackView.do {
             $0.axis = .vertical
             $0.spacing = 5
+        }
+        newVersionView.do {
+            $0.delegate = self
+        }
+        reviewView.do {
+            $0.delegate = self
         }
     }
     
@@ -96,28 +100,25 @@ final class DetailViewController: BaseViewController {
             $0.height.equalTo(500)
         }
     }
-    
-    @objc
+}
+
+extension DetailViewController: NewVersionDelegate {
     func navigateToVersion() {
         let nextViewController = VersionRecordViewController()
         navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
-    @objc
+}
+
+extension DetailViewController: ReviewDelegate {
+
     func navigateToReview() {
         let nextViewController = ReviewListViewController()
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
-    @objc
     func presentReviewWriteView() {
         let nextViewController = ReviewWriteViewController()
         self.present(nextViewController, animated: true)
     }
     
-    func setAddTarget() {
-        newVersionView.versionRecordButton.addTarget(self, action: #selector(navigateToVersion), for: .touchUpInside)
-        reviewView.reviewMoreButton.addTarget(self, action: #selector(navigateToReview), for: .touchUpInside)
-        reviewView.reviewWriteButton.addTarget(self, action: #selector(presentReviewWriteView), for: .touchUpInside)
-    }
 }

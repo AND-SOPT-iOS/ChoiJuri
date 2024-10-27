@@ -12,7 +12,7 @@ final class ReviewView: BaseView {
     private let reviewStackView = UIStackView()
     private let reviewTitleStackView = UIStackView()
     private let reviewTitleLabel = UILabel()
-    var reviewMoreButton = UIButton()
+    private let reviewMoreButton = UIButton()
     private let reviewScoreStackView = UIStackView()
     private let reviewNumLabel = UILabel()
     private let reviewPerfectLabel = UILabel()
@@ -40,6 +40,8 @@ final class ReviewView: BaseView {
     var reviewWriteButton = UIButton()
     private let backupButton = UIButton()
     
+    weak var delegate: ReviewDelegate?
+    
     init() {
         super.init(frame: .zero)
     }
@@ -63,6 +65,7 @@ final class ReviewView: BaseView {
         reviewMoreButton.do {
             $0.setTitle("모두 보기", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
+            $0.addTarget(self, action: #selector(navigateToReview), for: .touchUpInside)
         }
         reviewScoreStackView.do {
             $0.axis = .horizontal
@@ -146,6 +149,7 @@ final class ReviewView: BaseView {
             $0.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
             $0.setTitle(" 리뷰 작성", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
+            $0.addTarget(self, action: #selector(presentReviewWriteView), for: .touchUpInside)
         }
         backupButton.do {
             $0.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
@@ -191,4 +195,19 @@ final class ReviewView: BaseView {
             $0.right.left.equalToSuperview().inset(10)
         }
     }
+    
+    @objc
+    func navigateToReview() {
+        delegate?.navigateToReview()
+    }
+    
+    @objc
+    func presentReviewWriteView() {
+        delegate?.presentReviewWriteView()
+    }
+}
+
+protocol ReviewDelegate: AnyObject {
+    func navigateToReview()
+    func presentReviewWriteView()
 }
