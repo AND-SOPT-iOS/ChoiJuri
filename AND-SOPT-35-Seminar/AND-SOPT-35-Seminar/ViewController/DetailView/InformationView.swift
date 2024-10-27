@@ -9,25 +9,25 @@ import UIKit
 
 class InformationView: BaseView {
     
-    private var summaryStackView = UIStackView()
-    private var avgStackView = UIStackView()
-    private var avgTitleLabel = UILabel()
-    private var avgNumLabel = UILabel()
-    private var avgStarLabel = UILabel()
-    private var prizeStackView = UIStackView()
-    private var prizeTitleLabel = UILabel()
-    private var prizeImageView = UIImageView()
-    private var prizeLabel = UILabel()
-    private var ageStackView = UIStackView()
-    private var ageTitleLabel = UILabel()
-    private var ageNumLabel = UILabel()
-    private var ageLabel = UILabel()
+    private let summaryStackView = UIStackView()
+    private let avgStackView = UIStackView()
+    private let avgTitleLabel = UILabel()
+    private let avgNumLabel = UILabel()
+    private let avgStarLabel = UILabel()
+    private let prizeStackView = UIStackView()
+    private let prizeTitleLabel = UILabel()
+    private let prizeImageView = UIImageView()
+    private let prizeLabel = UILabel()
+    private let ageStackView = UIStackView()
+    private let ageTitleLabel = UILabel()
+    private let ageNumLabel = UILabel()
+    private let ageLabel = UILabel()
     
-    private var firstDivider = UIView()
-    private var secondDivider = UIView()
+    private let firstDivider = UIView()
+    private let secondDivider = UIView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {

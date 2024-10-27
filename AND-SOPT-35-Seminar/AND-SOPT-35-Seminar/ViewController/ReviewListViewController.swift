@@ -8,7 +8,7 @@
 import UIKit
 
 class ReviewListViewController: BaseViewController {
-    private var titleLabel = UILabel()
+    private let titleLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

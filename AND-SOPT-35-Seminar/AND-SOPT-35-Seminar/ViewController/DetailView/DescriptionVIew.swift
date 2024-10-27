@@ -9,17 +9,17 @@ import UIKit
 
 class DescriptionVIew: BaseView {
     
-    private var descriptionStackView = UIStackView()
-    private var descriptionLabel = UILabel()
+    private let descriptionStackView = UIStackView()
+    private let descriptionLabel = UILabel()
     
-    private var developerStackView = UIStackView()
-    private var developerLabelStackView = UIStackView()
-    private var developerLabel = UILabel()
-    private var developerSubLabel = UILabel()
-    private var developerMoreButton = UIButton()
+    private let developerStackView = UIStackView()
+    private let developerLabelStackView = UIStackView()
+    private let developerLabel = UILabel()
+    private let developerSubLabel = UILabel()
+    private let developerMoreButton = UIButton()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
@@ -56,7 +56,7 @@ class DescriptionVIew: BaseView {
         
     }
     override func addViews() {
-        self.addSubview(descriptionStackView)
+        addSubview(descriptionStackView)
         descriptionStackView.addArrangedSubViews(descriptionLabel, developerStackView)
         developerStackView.addArrangedSubViews(developerLabelStackView, UIView(), developerMoreButton)
         developerLabelStackView.addArrangedSubViews(developerLabel, developerSubLabel)

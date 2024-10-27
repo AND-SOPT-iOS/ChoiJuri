@@ -8,21 +8,21 @@
 import UIKit
 
 class ReviewWriteViewController: BaseViewController {
-    private var containerStackView = UIStackView()
+    private let containerStackView = UIStackView()
     
-    private var headerStackView = UIStackView()
-    private var cancleButton = UIButton()
-    private var titleLabel = UILabel()
-    private var sendButton = UIButton()
+    private let headerStackView = UIStackView()
+    private let cancleButton = UIButton()
+    private let titleLabel = UILabel()
+    private let sendButton = UIButton()
     
-    private var starStackView = UIStackView()
-    private var starLabel = UILabel()
-    private var descriptionLabel = UILabel()
+    private let starStackView = UIStackView()
+    private let starLabel = UILabel()
+    private let descriptionLabel = UILabel()
     
-    private var contentStackView = UIStackView()
-    private var titleTextField = UITextField()
-    private lazy var contentTextView = UITextView()
-    private var contentPlaceHolder = UILabel()
+    private let contentStackView = UIStackView()
+    private let titleTextField = UITextField()
+//    private lazy var contentTextView = UITextView()
+    private let contentPlaceHolder = UILabel()
      
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  ViewController.swift
 //  AND-SOPT-35-Seminar
 //
 //  Created by 최주리 on 10/5/24.
@@ -7,67 +7,135 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: BaseViewController {
     
-    private var button = UIButton()
-    private var titleLabel = UILabel()
-    private var contentLabel = UILabel()
+    //MARK: - Components
     
-    private var receivedTitleText: String?
-    private var receivedContentText: String?
-
+    private let scrollView = UIScrollView()
+    private let contentStackView = UIStackView()
+    
+    private let titleView = TitleView()
+    private let firstDivider = UIView()
+    private let informationView = InformationView()
+    private let secondDivider = UIView()
+    private let newVersionView = NewVersionView()
+    private let thirdDivider = UIView()
+    private let previewView = PreviewView()
+    private let fourthDivider = UIView()
+    private let descriptionView = DescriptionVIew()
+    private let fifthDivider = UIView()
+    private let reviewView = ReviewView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
-        initAttributes()
-        addViews()
+
+        setAddTarget()
     }
     
-    private func initAttributes() {
-        button = {
-            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
-            button.setTitle("이전 화면으로", for: .normal)
-            button.backgroundColor = .darkGray
-            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-            return button
-        }()
-        
-        titleLabel = {
-            let label = UILabel(frame: CGRect(origin: CGPoint(x: 130, y: 150), size: CGSize(width: 150, height: 100)))
-            label.font = .boldSystemFont(ofSize: 20)
-            label.text = receivedTitleText
-            label.textAlignment = .center
-            return label
-        }()
-        
-        contentLabel = {
-            let label = UILabel(frame: CGRect(origin: CGPoint(x: 130, y: 220), size: CGSize(width: 150, height: 100)))
-            label.font = .systemFont(ofSize: 16)
-            label.text = receivedContentText
-            label.textAlignment = .center
-            return label
-        }()
-    }
-    
-    private func addViews() {
-        [button, titleLabel, contentLabel].forEach {
-            view.addSubview($0)
+    override func initAttributes() {
+        scrollView.do {
+            $0.showsVerticalScrollIndicator = false
+        }
+        contentStackView.do {
+            $0.axis = .vertical
+            $0.spacing = 5
+        }
+        firstDivider.do {
+            $0.backgroundColor = .systemGray3
+        }
+        secondDivider.do {
+            $0.backgroundColor = .systemGray3
+        }
+        thirdDivider.do {
+            $0.backgroundColor = .systemGray3
+        }
+        fourthDivider.do {
+            $0.backgroundColor = .systemGray3
+        }
+        fifthDivider.do {
+            $0.backgroundColor = .systemGray3
         }
     }
     
-    func dataBind(title: String, content: String) {
-        self.receivedTitleText = title
-        self.receivedContentText = content
+    override func addViews() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentStackView)
+        contentStackView.addArrangedSubViews(titleView, firstDivider, informationView, secondDivider, newVersionView, thirdDivider, previewView, fourthDivider, descriptionView, fifthDivider, reviewView)
     }
     
-    @objc func buttonTapped() {
-
-        if self.navigationController == nil {
-            self.dismiss(animated: true)
-        } else {
-            self.navigationController?.popViewController(animated: true)
+    override func setLayout() {
+        let safeArea = view.safeAreaLayoutGuide
+        
+        scrollView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(safeArea).inset(20)
+            $0.bottom.equalTo(safeArea).offset(3)
+        }
+        contentStackView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView)
+            $0.width.equalTo(scrollView)
+            $0.height.greaterThanOrEqualToSuperview().priority(.low)
+//            $0.height.equalTo(10000)
+        }
+        titleView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(130)
+            $0.left.right.equalTo(contentStackView)
+        }
+        firstDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        informationView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(90)
+        }
+        secondDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        newVersionView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(160)
+        }
+        thirdDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        previewView.snp.makeConstraints {
+            $0.height.equalTo(720)
+        }
+        fourthDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        descriptionView.snp.makeConstraints {
+            $0.height.equalTo(100)
+        }
+        fifthDivider.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+        }
+        reviewView.snp.makeConstraints {
+            $0.height.equalTo(500)
         }
     }
-
+    
+    @objc
+    func navigateToVersion() {
+        let nextViewController = VersionRecordViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc
+    func navigateToReview() {
+        let nextViewController = ReviewListViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc
+    func presentReviewWriteView() {
+        let nextViewController = ReviewWriteViewController()
+        self.present(nextViewController, animated: true)
+    }
+    
+    func setAddTarget() {
+        newVersionView.versionRecordButton.addTarget(self, action: #selector(navigateToVersion), for: .touchUpInside)
+        reviewView.reviewMoreButton.addTarget(self, action: #selector(navigateToReview), for: .touchUpInside)
+        reviewView.reviewWriteButton.addTarget(self, action: #selector(presentReviewWriteView), for: .touchUpInside)
+    }
 }

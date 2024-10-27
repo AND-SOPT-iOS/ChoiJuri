@@ -9,17 +9,17 @@ import UIKit
 
 class NewVersionView: BaseView {
     
-    private var newStackView = UIStackView()
-    private var newTitleStackView = UIStackView()
-    private var newTitleLabel = UILabel()
+    private let newStackView = UIStackView()
+    private let newTitleStackView = UIStackView()
+    private let newTitleLabel = UILabel()
     var versionRecordButton = UIButton()
-    private var newSubTitleStackView = UIStackView()
-    private var newVersionLabel = UILabel()
-    private var newDateLabel = UILabel()
-    private var newDescriptionLabel = UILabel()
+    private let newSubTitleStackView = UIStackView()
+    private let newVersionLabel = UILabel()
+    private let newDateLabel = UILabel()
+    private let newDescriptionLabel = UILabel()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {

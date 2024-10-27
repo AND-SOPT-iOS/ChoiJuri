@@ -9,14 +9,14 @@ import UIKit
 
 class TitleView: BaseView {
     
-    private var titleStackView = UIStackView()
-    private var thumbnailImageView = UIImageView()
-    private var titleLabelStackView = UIStackView()
-    private var titleLabel = UILabel()
-    private var subtitleLabel = UILabel()
-    private var titleButtonStackView = UIStackView()
-    private var openButton = UIButton()
-    private var shareButton = UIButton()
+    private let titleStackView = UIStackView()
+    private let thumbnailImageView = UIImageView()
+    private let titleLabelStackView = UIStackView()
+    private let titleLabel = UILabel()
+    private let subtitleLabel = UILabel()
+    private let titleButtonStackView = UIStackView()
+    private let openButton = UIButton()
+    private let shareButton = UIButton()
     
     private var buttonConfig = UIButton.Configuration.filled()
 

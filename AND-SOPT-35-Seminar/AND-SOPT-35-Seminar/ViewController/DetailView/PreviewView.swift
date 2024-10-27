@@ -9,16 +9,16 @@ import UIKit
 
 class PreviewView: BaseView {
     
-    private var previewStackView = UIStackView()
-    private var previewLabel = UILabel()
-    private var previewImageView = UIImageView()
-    private var previewBottomStackView = UIStackView()
-    private var phoneImageView = UIImageView()
-    private var phoneLabel = UILabel()
-    private var divider = UIView()
+    private let previewStackView = UIStackView()
+    private let previewLabel = UILabel()
+    private let previewImageView = UIImageView()
+    private let previewBottomStackView = UIStackView()
+    private let phoneImageView = UIImageView()
+    private let phoneLabel = UILabel()
+    private let divider = UIView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {

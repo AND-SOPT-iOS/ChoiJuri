@@ -9,39 +9,39 @@ import UIKit
 
 class ReviewView: BaseView {
     
-    private var reviewStackView = UIStackView()
-    private var reviewTitleStackView = UIStackView()
-    private var reviewTitleLabel = UILabel()
+    private let reviewStackView = UIStackView()
+    private let reviewTitleStackView = UIStackView()
+    private let reviewTitleLabel = UILabel()
     var reviewMoreButton = UIButton()
-    private var reviewScoreStackView = UIStackView()
-    private var reviewNumLabel = UILabel()
-    private var reviewPerfectLabel = UILabel()
-    private var starStackView = UIStackView()
-    private var starImageView = UIImageView()
-    private var allStarLabel = UILabel()
-    private var reviewNumStackView = UIStackView()
+    private let reviewScoreStackView = UIStackView()
+    private let reviewNumLabel = UILabel()
+    private let reviewPerfectLabel = UILabel()
+    private let starStackView = UIStackView()
+    private let starImageView = UIImageView()
+    private let allStarLabel = UILabel()
+    private let reviewNumStackView = UIStackView()
     
-    private var divider = UIView()
+    private let divider = UIView()
     
-    private var tapStackView = UIStackView()
-    private var tapLabel = UILabel()
-    private var tapStarLabel = UILabel()
+    private let tapStackView = UIStackView()
+    private let tapLabel = UILabel()
+    private let tapStarLabel = UILabel()
     
-    private var reviewContentStackView = UIStackView()
-    private var reviewContentTitleStackView = UIStackView()
-    private var reviewContentTitleLabel = UILabel()
-    private var reviewContentDateLabel = UILabel()
-    private var reviewContentStarStackView = UIStackView()
-    private var reviewContentStarLabel = UILabel()
-    private var reviewWriterLabel = UILabel()
-    private var reviewContentLabel = UILabel()
+    private let reviewContentStackView = UIStackView()
+    private let reviewContentTitleStackView = UIStackView()
+    private let reviewContentTitleLabel = UILabel()
+    private let reviewContentDateLabel = UILabel()
+    private let reviewContentStarStackView = UIStackView()
+    private let reviewContentStarLabel = UILabel()
+    private let reviewWriterLabel = UILabel()
+    private let reviewContentLabel = UILabel()
     
-    private var reviewWriteStackView = UIStackView()
+    private let reviewWriteStackView = UIStackView()
     var reviewWriteButton = UIButton()
-    private var backupButton = UIButton()
+    private let backupButton = UIButton()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
