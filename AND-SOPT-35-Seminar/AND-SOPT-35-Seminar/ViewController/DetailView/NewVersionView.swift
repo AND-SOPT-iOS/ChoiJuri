@@ -73,12 +73,6 @@ final class NewVersionView: BaseView {
         newStackView.snp.makeConstraints {
             $0.width.equalToSuperview().inset(10)
         }
-        newTitleStackView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-        }
-        newSubTitleStackView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-        }
     }
     
     @objc

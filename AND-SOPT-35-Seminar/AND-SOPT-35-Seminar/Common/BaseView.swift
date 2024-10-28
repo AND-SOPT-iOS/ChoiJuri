@@ -10,6 +10,7 @@ import SnapKit
 import Then
 
 class BaseView: UIView {
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         backgroundColor = .systemBackground
