@@ -52,8 +52,16 @@ final class SecondSectionView: BaseView {
     
     override func addViews() {
         addSubview(contentStackView)
-        contentStackView.addArrangedSubViews(headerStackView, subtitleLabel, collectionView)
-        headerStackView.addArrangedSubViews(titleLabel, UIView(), viewButton)
+        contentStackView.addArrangedSubViews(
+            headerStackView,
+            subtitleLabel,
+            collectionView
+        )
+        headerStackView.addArrangedSubViews(
+            titleLabel,
+            UIView(),
+            viewButton
+        )
     }
     
     override func setLayout() {
@@ -96,21 +104,36 @@ final class SecondSectionView: BaseView {
 }
 
 extension SecondSectionView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return 9
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: AppCollectionCell.identifier, for: indexPath) as? AppCollectionCell else {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let item = collectionView.dequeueReusableCell(
+            withReuseIdentifier: AppCollectionCell.identifier,
+            for: indexPath
+        ) as? AppCollectionCell else {
             return UICollectionViewCell()
         }
-        item.configuration(app: appList[indexPath.row])
+        item.configuration(
+            app: appList[indexPath.row]
+        )
         return item
     }
 }
 
 extension SecondSectionView: UIScrollViewDelegate {
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+            
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         
         let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing

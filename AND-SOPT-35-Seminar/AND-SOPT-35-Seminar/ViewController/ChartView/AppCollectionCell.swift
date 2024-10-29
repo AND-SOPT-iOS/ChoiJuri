@@ -20,8 +20,8 @@ final class AppCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setStyle()
-        setUI()
+        initAttributes()
+        addViews()
         setLayout()
     }
     
@@ -29,7 +29,7 @@ final class AppCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setStyle() {
+    private func initAttributes() {
         
         buttonConfig.cornerStyle = .capsule
         titleLabel.do {
@@ -53,17 +53,12 @@ final class AppCollectionCell: UICollectionViewCell {
         }
     }
     
-    private func setUI() {
-        [
-            iconImageView,
-            verticalStackView,
-            downloadButton
-        ].forEach { addSubview($0) }
-        
-        [
-            titleLabel,
-            subTitleLabel
-        ].forEach { verticalStackView.addArrangedSubview($0) }
+    private func addViews() {
+        addSubviews(iconImageView,
+                    verticalStackView,
+                    downloadButton)
+        verticalStackView.addArrangedSubViews(titleLabel,
+                                              subTitleLabel)
     }
     
     private func setLayout() {

@@ -47,47 +47,86 @@ final class AppViewController: BaseViewController {
     }
     
     override func addViews() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentStackView)
-        contentStackView.addArrangedSubViews(firstCollectionView,  secondSectionView, thirdSectionView, fourthSectionView)
+        view.addSubview(
+            scrollView
+        )
+        scrollView.addSubview(
+            contentStackView
+        )
+        contentStackView.addArrangedSubViews(
+            firstCollectionView,
+            secondSectionView,
+            thirdSectionView,
+            fourthSectionView
+        )
     }
     
     override func setLayout() {
         let safeArea = view.safeAreaLayoutGuide
         
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(safeArea)
-            $0.leading.trailing.equalTo(safeArea).inset(20)
-            $0.bottom.equalTo(safeArea).offset(3)
+            $0.top.equalTo(
+                safeArea
+            )
+            $0.leading.trailing.equalTo(
+                safeArea
+            ).inset(
+                20
+            )
+            $0.bottom.equalTo(
+                safeArea
+            ).offset(
+                3
+            )
         }
         contentStackView.snp.makeConstraints {
-            $0.edges.equalTo(scrollView)
-            $0.width.equalTo(scrollView)
-            $0.height.greaterThanOrEqualToSuperview().priority(.low)
+            $0.edges.equalTo(
+                scrollView
+            )
+            $0.width.equalTo(
+                scrollView
+            )
+            $0.height.greaterThanOrEqualToSuperview().priority(
+                .low
+            )
         }
         firstCollectionView.snp.makeConstraints {
-            $0.height.equalTo(320)
+            $0.height.equalTo(
+                320
+            )
         }
         secondSectionView.snp.makeConstraints {
-            $0.height.equalTo(320)
+            $0.height.equalTo(
+                320
+            )
         }
         thirdSectionView.snp.makeConstraints {
-            $0.height.equalTo(320)
+            $0.height.equalTo(
+                320
+            )
         }
         fourthSectionView.snp.makeConstraints {
-            $0.height.equalTo(320)
+            $0.height.equalTo(
+                320
+            )
         }
     }
     
     private func setCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 40, height: 300)
+        layout.itemSize = CGSize(
+            width: UIScreen.main.bounds.width - 40,
+            height: 300
+        )
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 20
         
         firstCollectionView.do {
-            $0.setCollectionViewLayout(layout, animated: true)
+            $0.setCollectionViewLayout(
+                layout,
+                animated: true
+            )
             $0.register(
                 FirstSectionViewCell.self,
                 forCellWithReuseIdentifier: FirstSectionViewCell.identifier
@@ -102,29 +141,52 @@ final class AppViewController: BaseViewController {
 }
 
 extension AppViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         let detailViewController = DetailViewController()
-        navigationController?.pushViewController(detailViewController, animated: true)
+        navigationController?.pushViewController(
+            detailViewController,
+            animated: true
+        )
     }
 }
 
 extension AppViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return 4
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: FirstSectionViewCell.identifier, for: indexPath) as? FirstSectionViewCell else {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let item = collectionView.dequeueReusableCell(
+            withReuseIdentifier: FirstSectionViewCell.identifier,
+            for: indexPath
+        ) as? FirstSectionViewCell else {
             return UICollectionViewCell()
         }
-        item.configure(app: appList[indexPath.row])
+        item.configure(
+            app: appList[indexPath.row]
+        )
         return item
     }
 }
 
 extension AppViewController: UIScrollViewDelegate {
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        guard let layout = firstCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        guard let layout = firstCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
         
         let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
         
@@ -138,20 +200,29 @@ extension AppViewController: UIScrollViewDelegate {
             index = Int(round(estimatedIndex))
         }
         
-        targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
+        targetContentOffset.pointee = CGPoint(
+            x: CGFloat(index) * cellWidthIncludingSpacing,
+            y: 0
+        )
     }
 }
 
 extension AppViewController: ChartDelegate {
     func navigateToChart() {
         let nextViewController = ChartViewController()
-        navigationController?.pushViewController(nextViewController, animated: true)
+        navigationController?.pushViewController(
+            nextViewController,
+            animated: true
+        )
     }
 }
 
 extension AppViewController: NavigateToDetailDelegate {
     func navigateToDetail() {
         let nextViewController = DetailViewController()
-        navigationController?.pushViewController(nextViewController, animated: true)
+        navigationController?.pushViewController(
+            nextViewController,
+            animated: true
+        )
     }
 }

@@ -15,7 +15,10 @@ final class FourthSectionView: BaseView {
     private let headerStackView = UIStackView()
     private let titleLabel = UILabel()
     private let viewButton = UIButton()
-    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private let collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewLayout()
+    )
     
     weak var delegate: ChartDelegate?
     weak var detailDelegate: NavigateToDetailDelegate?
@@ -48,8 +51,15 @@ final class FourthSectionView: BaseView {
     
     override func addViews() {
         addSubview(contentStackView)
-        contentStackView.addArrangedSubViews(headerStackView, collectionView)
-        headerStackView.addArrangedSubViews(titleLabel, UIView(), viewButton)
+        contentStackView.addArrangedSubViews(
+            headerStackView,
+            collectionView
+        )
+        headerStackView.addArrangedSubViews(
+            titleLabel,
+            UIView(),
+            viewButton
+        )
     }
     
     override func setLayout() {
@@ -93,27 +103,45 @@ final class FourthSectionView: BaseView {
 }
 
 extension FourthSectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         detailDelegate?.navigateToDetail()
     }
 }
 
 extension FourthSectionView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return 9
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: ChartCollectionCell.identifier, for: indexPath) as? ChartCollectionCell else {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let item = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ChartCollectionCell.identifier,
+            for: indexPath
+        ) as? ChartCollectionCell else {
             return UICollectionViewCell()
         }
-        item.configuration(app: appList[indexPath.row])
+        item.configuration(
+            app: appList[indexPath.row]
+        )
         return item
     }
 }
 
 extension FourthSectionView: UIScrollViewDelegate {
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         
         let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
