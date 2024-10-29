@@ -59,8 +59,15 @@ class FirstSectionAppView: BaseView {
     }
     
     override func addViews() {
-        addSubviews(iconImageView, verticalStackView, downloadButton)
-        verticalStackView.addArrangedSubViews(titleLabel, subTitleLabel)
+        addSubviews(
+            iconImageView,
+            verticalStackView,
+            downloadButton
+        )
+        verticalStackView.addArrangedSubViews(
+            titleLabel,
+            subTitleLabel
+        )
     }
     
     override func setLayout() {

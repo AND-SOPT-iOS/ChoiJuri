@@ -159,16 +159,55 @@ final class ReviewView: BaseView {
     }
     override func addViews() {
         addSubview(reviewStackView)
-        reviewStackView.addArrangedSubViews(reviewTitleStackView, reviewScoreStackView, divider, tapStackView, reviewContentStackView, reviewWriteStackView)
-        reviewTitleStackView.addArrangedSubViews(reviewTitleLabel, UIView(), reviewMoreButton)
-        reviewScoreStackView.addArrangedSubViews(reviewNumStackView, starStackView)
-        reviewNumStackView.addArrangedSubViews(reviewNumLabel, reviewPerfectLabel)
-        starStackView.addArrangedSubViews(starImageView, allStarLabel)
-        tapStackView.addArrangedSubViews(tapLabel, UIView(), tapStarLabel)
-        reviewContentStackView.addArrangedSubViews(reviewContentTitleStackView, reviewContentStarStackView, reviewContentLabel)
-        reviewContentTitleStackView.addArrangedSubViews(reviewContentTitleLabel, reviewContentDateLabel)
-        reviewContentStarStackView.addArrangedSubViews(reviewContentStarLabel, UIView(), reviewWriterLabel)
-        reviewWriteStackView.addArrangedSubViews(reviewWriteButton, UIView(), backupButton)
+        reviewStackView.addArrangedSubViews(
+            reviewTitleStackView,
+            reviewScoreStackView,
+            divider,
+            tapStackView,
+            reviewContentStackView,
+            reviewWriteStackView
+        )
+        reviewTitleStackView.addArrangedSubViews(
+            reviewTitleLabel,
+            UIView(),
+            reviewMoreButton
+        )
+        reviewScoreStackView.addArrangedSubViews(
+            reviewNumStackView,
+            starStackView
+        )
+        reviewNumStackView.addArrangedSubViews(
+            reviewNumLabel,
+            reviewPerfectLabel
+        )
+        starStackView.addArrangedSubViews(
+            starImageView,
+            allStarLabel
+        )
+        tapStackView.addArrangedSubViews(
+            tapLabel,
+            UIView(),
+            tapStarLabel
+        )
+        reviewContentStackView.addArrangedSubViews(
+            reviewContentTitleStackView,
+            reviewContentStarStackView,
+            reviewContentLabel
+        )
+        reviewContentTitleStackView.addArrangedSubViews(
+            reviewContentTitleLabel,
+            reviewContentDateLabel
+        )
+        reviewContentStarStackView.addArrangedSubViews(
+            reviewContentStarLabel,
+            UIView(),
+            reviewWriterLabel
+        )
+        reviewWriteStackView.addArrangedSubViews(
+            reviewWriteButton,
+            UIView(),
+            backupButton
+        )
     }
     override func setLayout() {
         reviewStackView.snp.makeConstraints {

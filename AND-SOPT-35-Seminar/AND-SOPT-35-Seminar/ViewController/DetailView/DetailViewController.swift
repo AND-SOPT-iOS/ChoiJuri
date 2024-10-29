@@ -47,7 +47,19 @@ final class DetailViewController: BaseViewController {
     override func addViews() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentStackView)
-        contentStackView.addArrangedSubViews(titleView, firstDivider, informationView, secondDivider, newVersionView, thirdDivider, previewView, fourthDivider, descriptionView, fifthDivider, reviewView)
+        contentStackView.addArrangedSubViews(
+            titleView,
+            firstDivider,
+            informationView,
+            secondDivider,
+            newVersionView,
+            thirdDivider,
+            previewView,
+            fourthDivider,
+            descriptionView,
+            fifthDivider,
+            reviewView
+        )
     }
     
     override func setLayout() {

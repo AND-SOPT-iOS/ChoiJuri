@@ -61,8 +61,16 @@ final class FirstSectionViewCell: UICollectionViewCell {
     
     private func addViews() {
         addSubview(contentStackView)
-        contentStackView.addArrangedSubViews(firstLabel, titleLabel, subtitleLabel, cardView)
-        cardView.addSubviews(appImageView, appView)
+        contentStackView.addArrangedSubViews(
+            firstLabel,
+            titleLabel,
+            subtitleLabel,
+            cardView
+        )
+        cardView.addSubviews(
+            appImageView,
+            appView
+        )
     }
     
     private func setLayout() {

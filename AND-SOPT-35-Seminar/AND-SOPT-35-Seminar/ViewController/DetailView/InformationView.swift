@@ -106,10 +106,28 @@ final class InformationView: BaseView {
     override func addViews() {
         addSubviews(summaryStackView)
         
-        summaryStackView.addArrangedSubViews(avgStackView, firstDivider, prizeStackView, secondDivider, ageStackView)
-        avgStackView.addArrangedSubViews(avgTitleLabel, avgNumLabel, avgStarLabel)
-        prizeStackView.addArrangedSubViews(prizeTitleLabel, prizeImageView, prizeLabel)
-        ageStackView.addArrangedSubViews(ageTitleLabel, ageNumLabel, ageLabel)
+        summaryStackView.addArrangedSubViews(
+            avgStackView,
+            firstDivider,
+            prizeStackView,
+            secondDivider,
+            ageStackView
+        )
+        avgStackView.addArrangedSubViews(
+            avgTitleLabel,
+            avgNumLabel,
+            avgStarLabel
+        )
+        prizeStackView.addArrangedSubViews(
+            prizeTitleLabel,
+            prizeImageView,
+            prizeLabel
+        )
+        ageStackView.addArrangedSubViews(
+            ageTitleLabel,
+            ageNumLabel,
+            ageLabel
+        )
     }
     
     override func setLayout() {

@@ -43,18 +43,21 @@ class ChartViewController: BaseViewController {
 }
 
 extension ChartViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, 
+                   didSelectRowAt indexPath: IndexPath) {
         let viewController = DetailViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
 extension ChartViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, 
+                   numberOfRowsInSection section: Int) -> Int {
         return appList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, 
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChartCell.identifier, for: indexPath) as? ChartCell else {
             return UITableViewCell()
         }

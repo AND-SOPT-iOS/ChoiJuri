@@ -26,8 +26,8 @@ class ChartCell: UITableViewCell {
         reuseIdentifier: String?) {
             
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setStyle()
-        setUI()
+        initAttributes()
+        addViews()
         setLayout()
     }
     
@@ -35,7 +35,7 @@ class ChartCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setStyle() {
+    private func initAttributes() {
         
         buttonConfig.cornerStyle = .capsule
         titleLabel.do {
@@ -62,18 +62,14 @@ class ChartCell: UITableViewCell {
         }
     }
     
-    private func setUI() {
-        [
-            iconImageView,
-            rankingLabel,
-            verticalStackView,
-            downloadButton
-        ].forEach { addSubview($0) }
+    private func addViews() {
+        addSubviews(iconImageView,
+                    rankingLabel,
+                    verticalStackView,
+                    downloadButton)
         
-        [
-            titleLabel,
-            subTitleLabel
-        ].forEach { verticalStackView.addArrangedSubview($0) }
+        verticalStackView.addArrangedSubViews(titleLabel,
+                                              subTitleLabel)
     }
     
     private func setLayout() {

@@ -59,8 +59,15 @@ final class PreviewView: BaseView {
     
     override func addViews() {
         addSubview(previewStackView)
-        previewStackView.addArrangedSubViews(previewLabel, previewImageView, previewBottomStackView)
-        previewBottomStackView.addArrangedSubViews(phoneImageView, phoneLabel)
+        previewStackView.addArrangedSubViews(
+            previewLabel,
+            previewImageView,
+            previewBottomStackView
+        )
+        previewBottomStackView.addArrangedSubViews(
+            phoneImageView,
+            phoneLabel
+        )
     }
     
     override func setLayout() {

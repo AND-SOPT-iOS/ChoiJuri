@@ -68,9 +68,22 @@ final class TitleView: BaseView {
     
     override func addViews() {
         addSubviews(titleStackView)
-        titleStackView.addArrangedSubViews(thumbnailImageView, titleLabelStackView)
-        titleLabelStackView.addArrangedSubViews(titleLabel, subtitleLabel, UIView(), titleButtonStackView)
-        titleButtonStackView.addArrangedSubViews(openButton, UIView(), UIView(), shareButton)
+        titleStackView.addArrangedSubViews(
+            thumbnailImageView,
+            titleLabelStackView
+        )
+        titleLabelStackView.addArrangedSubViews(
+            titleLabel,
+            subtitleLabel,
+            UIView(),
+            titleButtonStackView
+        )
+        titleButtonStackView.addArrangedSubViews(
+            openButton,
+            UIView(),
+            UIView(),
+            shareButton
+        )
     }
     
     override func setLayout() {
