@@ -31,6 +31,13 @@
 		CB051BE62CCCCF6B00A3B223 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BE52CCCCF6B00A3B223 /* PhotoCell.swift */; };
 		CB051BE82CCCD00900A3B223 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BE72CCCD00900A3B223 /* PhotoViewController.swift */; };
 		CB051BEA2CCE803800A3B223 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BE92CCE803800A3B223 /* DividerView.swift */; };
+		CB051BEE2CCFD5A900A3B223 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BED2CCFD5A900A3B223 /* AppViewController.swift */; };
+		CB051BF02CCFD5DF00A3B223 /* FirstSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BEF2CCFD5DF00A3B223 /* FirstSectionView.swift */; };
+		CB051BF22CCFEF1A00A3B223 /* ChartCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BF12CCFEF1A00A3B223 /* ChartCellView.swift */; };
+		CB051BF42CCFF54900A3B223 /* SecondSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BF32CCFF54900A3B223 /* SecondSectionView.swift */; };
+		CB051BF62CD0C99A00A3B223 /* ChartCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BF52CD0C99A00A3B223 /* ChartCollectionCell.swift */; };
+		CB051BF82CD0D30700A3B223 /* ThirdSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BF72CD0D30700A3B223 /* ThirdSectionView.swift */; };
+		CB051BFA2CD0D78C00A3B223 /* FourthSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BF92CD0D78C00A3B223 /* FourthSectionView.swift */; };
 		CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */; };
 		CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */; };
 		CB2E9CF02CB101C6007D0B9B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEF2CB101C6007D0B9B /* DetailViewController.swift */; };
@@ -60,6 +67,13 @@
 		CB051BE52CCCCF6B00A3B223 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CB051BE72CCCD00900A3B223 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CB051BE92CCE803800A3B223 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		CB051BED2CCFD5A900A3B223 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		CB051BEF2CCFD5DF00A3B223 /* FirstSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionView.swift; sourceTree = "<group>"; };
+		CB051BF12CCFEF1A00A3B223 /* ChartCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellView.swift; sourceTree = "<group>"; };
+		CB051BF32CCFF54900A3B223 /* SecondSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionView.swift; sourceTree = "<group>"; };
+		CB051BF52CD0C99A00A3B223 /* ChartCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionCell.swift; sourceTree = "<group>"; };
+		CB051BF72CD0D30700A3B223 /* ThirdSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSectionView.swift; sourceTree = "<group>"; };
+		CB051BF92CD0D78C00A3B223 /* FourthSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthSectionView.swift; sourceTree = "<group>"; };
 		CB2E9CE82CB101C6007D0B9B /* AND-SOPT-35-Seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AND-SOPT-35-Seminar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +169,13 @@
 				CB051BDC2CCCC1F200A3B223 /* ChartCell.swift */,
 				CB051BDE2CCCC21E00A3B223 /* ChartViewController.swift */,
 				CB051BE02CCCC25700A3B223 /* DownloadState.swift */,
+				CB051BED2CCFD5A900A3B223 /* AppViewController.swift */,
+				CB051BEF2CCFD5DF00A3B223 /* FirstSectionView.swift */,
+				CB051BF12CCFEF1A00A3B223 /* ChartCellView.swift */,
+				CB051BF32CCFF54900A3B223 /* SecondSectionView.swift */,
+				CB051BF52CD0C99A00A3B223 /* ChartCollectionCell.swift */,
+				CB051BF72CD0D30700A3B223 /* ThirdSectionView.swift */,
+				CB051BF92CD0D78C00A3B223 /* FourthSectionView.swift */,
 			);
 			path = ChartView;
 			sourceTree = "<group>";
@@ -279,22 +300,29 @@
 				CB2E9CF02CB101C6007D0B9B /* DetailViewController.swift in Sources */,
 				CB051BBF2CC00CAC00A3B223 /* ReviewView.swift in Sources */,
 				CB051BBD2CC0008000A3B223 /* DescriptionVIew.swift in Sources */,
+				CB051BF22CCFEF1A00A3B223 /* ChartCellView.swift in Sources */,
 				CB051BC22CC01F4400A3B223 /* VersionRecordViewController.swift in Sources */,
 				CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */,
 				CB051BE82CCCD00900A3B223 /* PhotoViewController.swift in Sources */,
 				CB051BB92CBFC1E400A3B223 /* NewVersionView.swift in Sources */,
 				CB051BC42CC023B800A3B223 /* ReviewListViewController.swift in Sources */,
+				CB051BFA2CD0D78C00A3B223 /* FourthSectionView.swift in Sources */,
 				CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */,
 				CB051BB02CBF802800A3B223 /* TitleView.swift in Sources */,
+				CB051BEE2CCFD5A900A3B223 /* AppViewController.swift in Sources */,
 				CB051BDF2CCCC21E00A3B223 /* ChartViewController.swift in Sources */,
 				CB051BDB2CCCC18500A3B223 /* App.swift in Sources */,
 				CB051BE12CCCC25700A3B223 /* DownloadState.swift in Sources */,
 				CB051BE62CCCCF6B00A3B223 /* PhotoCell.swift in Sources */,
+				CB051BF02CCFD5DF00A3B223 /* FirstSectionView.swift in Sources */,
 				CB051BBB2CBFCBBB00A3B223 /* PreviewView.swift in Sources */,
+				CB051BF82CD0D30700A3B223 /* ThirdSectionView.swift in Sources */,
 				CB051BA92CBF7D5600A3B223 /* UIView+Extension.swift in Sources */,
 				CB051BB72CBF927D00A3B223 /* InformationView.swift in Sources */,
 				CB051BB32CBF805400A3B223 /* BaseViewController.swift in Sources */,
 				CB051BDD2CCCC1F200A3B223 /* ChartCell.swift in Sources */,
+				CB051BF62CD0C99A00A3B223 /* ChartCollectionCell.swift in Sources */,
+				CB051BF42CCFF54900A3B223 /* SecondSectionView.swift in Sources */,
 				CB051BB52CBF82FC00A3B223 /* BaseView.swift in Sources */,
 				CB051BE42CCCCF4600A3B223 /* Photo.swift in Sources */,
 				CB051BC62CC0242C00A3B223 /* ReviewWriteViewController.swift in Sources */,

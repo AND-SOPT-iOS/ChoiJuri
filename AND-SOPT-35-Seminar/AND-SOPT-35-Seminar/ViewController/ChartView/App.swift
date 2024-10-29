@@ -21,7 +21,7 @@ struct App {
 extension App {
     static let mockData: [App] = [
         App(
-            iconImage: UIImage(systemName: "questionmark")!,
+            iconImage: .thumbnail,
             ranking: 0,
             title: "카카오톡",
             subTitle: "모든 연결의 시작",
@@ -68,6 +68,47 @@ extension App {
             category: "소셜 네트워킹",
             downloadState: .installed
         ),
+        App(
+            iconImage: UIImage(systemName: "questionmark")!,
+            ranking: 5,
+            title: "당근",
+            subTitle: "당신 근처의 지역 생활 커뮤니티",
+            category: "소셜 네트워킹",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: UIImage(systemName: "questionmark")!,
+            ranking: 5,
+            title: "당근",
+            subTitle: "당신 근처의 지역 생활 커뮤니티",
+            category: "소셜 네트워킹",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: UIImage(systemName: "questionmark")!,
+            ranking: 5,
+            title: "당근",
+            subTitle: "당신 근처의 지역 생활 커뮤니티",
+            category: "소셜 네트워킹",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: UIImage(systemName: "questionmark")!,
+            ranking: 5,
+            title: "당근",
+            subTitle: "당신 근처의 지역 생활 커뮤니티",
+            category: "소셜 네트워킹",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: UIImage(systemName: "questionmark")!,
+            ranking: 5,
+            title: "당근",
+            subTitle: "당신 근처의 지역 생활 커뮤니티",
+            category: "소셜 네트워킹",
+            downloadState: .installed
+        ),
+        
     ]
 }
 
