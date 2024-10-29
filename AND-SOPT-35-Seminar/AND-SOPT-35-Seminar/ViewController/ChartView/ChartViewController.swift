@@ -11,13 +11,14 @@ class ChartViewController: UIViewController {
     
     private let tableView = UITableView()
     private let appList = App.mockData
-    
+    private let secondsectionView = SecondSectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
         view.addSubview(tableView)
+        view.addSubview(secondsectionView)
         setLayout()
         setStyle()
         
