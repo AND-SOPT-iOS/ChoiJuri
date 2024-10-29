@@ -44,7 +44,7 @@ final class ChartCollectionCell: UICollectionViewCell {
             $0.spacing = 4
         }
         rankingLabel.do {
-            $0.font = .systemFont(ofSize: 20, weight: .bold)
+            $0.font = .systemFont(ofSize: 18, weight: .bold)
         }
         subTitleLabel.do {
             $0.font = .systemFont(ofSize: 14)
@@ -74,7 +74,7 @@ final class ChartCollectionCell: UICollectionViewCell {
     private func setLayout() {
         iconImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview()
             $0.size.equalTo(60)
         }
         
@@ -91,7 +91,7 @@ final class ChartCollectionCell: UICollectionViewCell {
         
         downloadButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.trailing.equalToSuperview()
             $0.width.equalTo(70)
             $0.height.equalTo(35)
         }

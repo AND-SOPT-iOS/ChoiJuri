@@ -1,31 +1,36 @@
 //
-//  ChartCellView.swift
+//  AppCollectionCell.swift
 //  AND-SOPT-35-Seminar
 //
-//  Created by 최주리 on 10/29/24.
+//  Created by 최주리 on 10/30/24.
 //
 
 import UIKit
 
-class ChartCellView: BaseView {
+final class AppCollectionCell: UICollectionViewCell {
+    
+    static let identifier = "AppCollectionCell"
     
     private let verticalStackView = UIStackView()
     private let iconImageView = UIImageView()
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
     private let downloadButton = UIButton()
-    
     private var buttonConfig = UIButton.Configuration.gray()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        setStyle()
+        setUI()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func initAttributes() {
+    private func setStyle() {
+        
         buttonConfig.cornerStyle = .capsule
         titleLabel.do {
             $0.numberOfLines = 2
@@ -48,35 +53,44 @@ class ChartCellView: BaseView {
         }
     }
     
-    override func addViews() {
-        addSubviews(iconImageView, verticalStackView, downloadButton)
-        verticalStackView.addArrangedSubViews(titleLabel, subTitleLabel)
+    private func setUI() {
+        [
+            iconImageView,
+            verticalStackView,
+            downloadButton
+        ].forEach { addSubview($0) }
+        
+        [
+            titleLabel,
+            subTitleLabel
+        ].forEach { verticalStackView.addArrangedSubview($0) }
     }
     
-    override func setLayout() {
+    private func setLayout() {
+        
         iconImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(20)
-            $0.size.equalTo(40)
+            $0.leading.equalToSuperview()
+            $0.size.equalTo(60)
         }
+        
         verticalStackView.snp.makeConstraints {
             $0.leading.equalTo(iconImageView.snp.trailing).offset(15)
             $0.trailing.equalTo(downloadButton.snp.leading).offset(-20)
-            $0.centerY.equalToSuperview()
+            $0.top.equalToSuperview().inset(12)
         }
         
         downloadButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.trailing.equalToSuperview()
             $0.width.equalTo(70)
             $0.height.equalTo(35)
         }
     }
     
-    func configure(app: App) {
+    func configuration(app: App) {
         iconImageView.image = app.iconImage
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle
-        //      downloadButton.setTitle(app.downloadState.title, for: .normal)
     }
 }

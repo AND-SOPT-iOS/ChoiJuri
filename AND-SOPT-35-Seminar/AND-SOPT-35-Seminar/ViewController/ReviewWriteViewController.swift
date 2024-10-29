@@ -21,7 +21,6 @@ final class ReviewWriteViewController: BaseViewController {
     
     private let contentStackView = UIStackView()
     private let titleTextField = UITextField()
-//    private lazy var contentTextView = UITextView()
     private let contentPlaceHolder = UILabel()
      
     override func viewDidLoad() {

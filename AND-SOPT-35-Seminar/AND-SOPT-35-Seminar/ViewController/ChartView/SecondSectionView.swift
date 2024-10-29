@@ -18,7 +18,7 @@ final class SecondSectionView: BaseView {
     private let viewButton = UIButton()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
-//    private let chartCellView = ChartCellView()
+    weak var delegate: ChartDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -46,6 +46,7 @@ final class SecondSectionView: BaseView {
         viewButton.do {
             $0.setTitle("모두 보기", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
+            $0.addTarget(self, action: #selector(navigateToChart), for: .touchUpInside)
         }
     }
     
@@ -78,20 +79,20 @@ final class SecondSectionView: BaseView {
         collectionView.do {
             $0.setCollectionViewLayout(layout, animated: true)
             $0.register(
-                ChartCollectionCell.self,
-                forCellWithReuseIdentifier: ChartCollectionCell.identifier
+                AppCollectionCell.self,
+                forCellWithReuseIdentifier: AppCollectionCell.identifier
             )
-            $0.delegate = self
             $0.dataSource = self
             $0.showsHorizontalScrollIndicator = false
             $0.decelerationRate = .fast
             $0.isPagingEnabled = false
         }
     }
-}
-
-extension SecondSectionView: UICollectionViewDelegate {
     
+    @objc
+    func navigateToChart() {
+        delegate?.navigateToChart()
+    }
 }
 
 extension SecondSectionView: UICollectionViewDataSource {
@@ -100,7 +101,7 @@ extension SecondSectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: ChartCollectionCell.identifier, for: indexPath) as? ChartCollectionCell else {
+        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: AppCollectionCell.identifier, for: indexPath) as? AppCollectionCell else {
             return UICollectionViewCell()
         }
         item.configuration(app: appList[indexPath.row])
@@ -126,4 +127,8 @@ extension SecondSectionView: UIScrollViewDelegate {
         
         targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
     }
+}
+
+protocol ChartDelegate: AnyObject {
+    func navigateToChart()
 }

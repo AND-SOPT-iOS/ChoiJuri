@@ -7,38 +7,45 @@
 
 import UIKit
 
-class ChartViewController: UIViewController {
+class ChartViewController: BaseViewController {
     
     private let tableView = UITableView()
     private let appList = App.mockData
-    private let secondsectionView = SecondSectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
-        view.addSubview(tableView)
-        view.addSubview(secondsectionView)
-        setLayout()
-        setStyle()
-        
+        navigationItem.title = "인기 차트"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func setStyle() {
-        
+    override func initAttributes() {
         tableView.do {
             $0.register(
                 ChartCell.self,
                 forCellReuseIdentifier: ChartCell.identifier)
-            $0.rowHeight = 100
+//            $0.rowHeight = UITableView.automaticDimension
+            $0.rowHeight = 90
             $0.dataSource = self
+            $0.delegate = self
         }
     }
     
-    private func setLayout() {
+    override func addViews() {
+        view.addSubview(tableView)
+    }
+    
+    override func setLayout() {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+}
+
+extension ChartViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
