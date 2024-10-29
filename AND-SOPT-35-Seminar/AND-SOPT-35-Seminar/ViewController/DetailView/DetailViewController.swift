@@ -54,7 +54,8 @@ final class DetailViewController: BaseViewController {
         let safeArea = view.safeAreaLayoutGuide
         
         scrollView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(safeArea).inset(20)
+            $0.top.equalTo(safeArea)
+            $0.leading.trailing.equalTo(safeArea).inset(20)
             $0.bottom.equalTo(safeArea).offset(3)
         }
         contentStackView.snp.makeConstraints {

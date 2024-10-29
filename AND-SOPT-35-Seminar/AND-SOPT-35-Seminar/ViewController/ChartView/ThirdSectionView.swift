@@ -17,6 +17,8 @@ final class ThirdSectionView: BaseView {
     private let viewButton = UIButton()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
+    weak var delegate: ChartDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setCollectionView()
@@ -39,6 +41,7 @@ final class ThirdSectionView: BaseView {
         viewButton.do {
             $0.setTitle("모두 보기", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
+            $0.addTarget(self, action: #selector(navigateToChart), for: .touchUpInside)
         }
     }
     
@@ -80,6 +83,11 @@ final class ThirdSectionView: BaseView {
             $0.decelerationRate = .fast
             $0.isPagingEnabled = false
         }
+    }
+    
+    @objc
+    func navigateToChart() {
+        delegate?.navigateToChart()
     }
 }
 

@@ -9,6 +9,8 @@ import UIKit
 
 final class AppViewController: BaseViewController {
     
+    private let appList = App.mockData
+    
     private let scrollView = UIScrollView()
     private let contentStackView = UIStackView()
     private let firstCollectionView = UICollectionView(
@@ -22,6 +24,7 @@ final class AppViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
+        navigationItem.title = "금융"
     }
     
     override func initAttributes() {
@@ -30,6 +33,16 @@ final class AppViewController: BaseViewController {
         }
         contentStackView.do {
             $0.axis = .vertical
+        }
+        secondSectionView.do {
+            $0.delegate = self
+        }
+        thirdSectionView.do {
+            $0.delegate = self
+        }
+        fourthSectionView.do {
+            $0.delegate = self
+            $0.detailDelegate = self
         }
     }
     
@@ -43,7 +56,8 @@ final class AppViewController: BaseViewController {
         let safeArea = view.safeAreaLayoutGuide
         
         scrollView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(safeArea).inset(20)
+            $0.top.equalTo(safeArea)
+            $0.leading.trailing.equalTo(safeArea).inset(20)
             $0.bottom.equalTo(safeArea).offset(3)
         }
         contentStackView.snp.makeConstraints {
@@ -52,16 +66,16 @@ final class AppViewController: BaseViewController {
             $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
         firstCollectionView.snp.makeConstraints {
-            $0.height.equalTo(300)
+            $0.height.equalTo(320)
         }
         secondSectionView.snp.makeConstraints {
-            $0.height.equalTo(350)
+            $0.height.equalTo(320)
         }
         thirdSectionView.snp.makeConstraints {
-            $0.height.equalTo(350)
+            $0.height.equalTo(320)
         }
         fourthSectionView.snp.makeConstraints {
-            $0.height.equalTo(350)
+            $0.height.equalTo(320)
         }
     }
     
@@ -69,8 +83,8 @@ final class AppViewController: BaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 40, height: 300)
-        layout.minimumLineSpacing = 40
-        layout.minimumInteritemSpacing = 40
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 20
         
         firstCollectionView.do {
             $0.setCollectionViewLayout(layout, animated: true)
@@ -88,7 +102,10 @@ final class AppViewController: BaseViewController {
 }
 
 extension AppViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
 
 extension AppViewController: UICollectionViewDataSource {
@@ -100,7 +117,7 @@ extension AppViewController: UICollectionViewDataSource {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: FirstSectionViewCell.identifier, for: indexPath) as? FirstSectionViewCell else {
             return UICollectionViewCell()
         }
-        //        item.configuration(app: appList[indexPath.row])
+        item.configure(app: appList[indexPath.row])
         return item
     }
 }
@@ -122,5 +139,19 @@ extension AppViewController: UIScrollViewDelegate {
         }
         
         targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
+    }
+}
+
+extension AppViewController: ChartDelegate {
+    func navigateToChart() {
+        let nextViewController = ChartViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+}
+
+extension AppViewController: NavigateToDetailDelegate {
+    func navigateToDetail() {
+        let nextViewController = DetailViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

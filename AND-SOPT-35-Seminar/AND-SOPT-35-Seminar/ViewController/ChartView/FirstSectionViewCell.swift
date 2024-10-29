@@ -17,7 +17,7 @@ final class FirstSectionViewCell: UICollectionViewCell {
     private let subtitleLabel = UILabel()
     private let cardView = UIView()
     private let appImageView = UIImageView()
-    private let chartCellView = ChartCellView()
+    private let appView = FirstSectionAppView()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -41,28 +41,28 @@ final class FirstSectionViewCell: UICollectionViewCell {
             $0.font = .systemFont(ofSize: 12)
         }
         titleLabel.do {
-            $0.text = "Taxnote 부기 및 회계 앱"
             $0.font = .systemFont(ofSize: 24)
         }
         subtitleLabel.do {
-            $0.text = "간편한 장부 관리"
             $0.textColor = .systemGray
             $0.font = .systemFont(ofSize: 22)
         }
         appImageView.do {
-            let image: UIImage = .thumbnail
+            let image: UIImage = .appBackground
             $0.image = image
-            $0.contentMode = .scaleAspectFit
+            $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
+//            $0.contentMode = .scaleAspectFill
         }
-        chartCellView.do {
-            $0.configure(app: App.mockData[0])
-        }
+//        appView.do {
+//            $0.configure(app: App.mockData[0])
+//        }
     }
     
     private func addViews() {
         addSubview(contentStackView)
         contentStackView.addArrangedSubViews(firstLabel, titleLabel, subtitleLabel, cardView)
-        cardView.addSubviews(appImageView, chartCellView)
+        cardView.addSubviews(appImageView, appView)
     }
     
     private func setLayout() {
@@ -76,9 +76,16 @@ final class FirstSectionViewCell: UICollectionViewCell {
             $0.height.equalTo(200)
             $0.width.equalToSuperview()
         }
-        chartCellView.snp.makeConstraints {
+        appView.snp.makeConstraints {
             $0.width.equalTo(appImageView.snp.width)
-            $0.bottom.equalTo(appImageView.snp.bottom).inset(50)
+            $0.bottom.equalTo(appImageView.snp.bottom).inset(30)
         }
+    }
+    
+    func configure(app: App) {
+        titleLabel.text = app.title
+        subtitleLabel.text = app.subTitle
+        appView.configure(app: app)
+        //      downloadButton.setTitle(app.downloadState.title, for: .normal)
     }
 }

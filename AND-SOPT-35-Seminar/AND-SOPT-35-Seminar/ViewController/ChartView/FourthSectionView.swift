@@ -17,6 +17,9 @@ final class FourthSectionView: BaseView {
     private let viewButton = UIButton()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
+    weak var delegate: ChartDelegate?
+    weak var detailDelegate: NavigateToDetailDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setCollectionView()
@@ -39,6 +42,7 @@ final class FourthSectionView: BaseView {
         viewButton.do {
             $0.setTitle("모두 보기", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
+            $0.addTarget(self, action: #selector(navigateToChart), for: .touchUpInside)
         }
     }
     
@@ -81,10 +85,17 @@ final class FourthSectionView: BaseView {
             $0.isPagingEnabled = false
         }
     }
+    
+    @objc
+    func navigateToChart() {
+        delegate?.navigateToChart()
+    }
 }
 
 extension FourthSectionView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        detailDelegate?.navigateToDetail()
+    }
 }
 
 extension FourthSectionView: UICollectionViewDataSource {
@@ -119,4 +130,8 @@ extension FourthSectionView: UIScrollViewDelegate {
         
         targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
     }
+}
+
+protocol NavigateToDetailDelegate: AnyObject {
+    func navigateToDetail()
 }
