@@ -11,12 +11,14 @@ final class AppViewController: BaseViewController {
     
     private let scrollView = UIScrollView()
     private let contentStackView = UIStackView()
-    private let firstCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-//    private let firstSectionView = FirstSectionView()
-    private let secondSectionView = SecondSectionView()
+    private let firstCollectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout()
+    )
     private let thirdSectionView = ThirdSectionView()
+    private let secondSectionView = SecondSectionView()
     private let fourthSectionView = FourthSectionView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
@@ -34,7 +36,7 @@ final class AppViewController: BaseViewController {
     override func addViews() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentStackView)
-        contentStackView.addArrangedSubViews(/*firstSectionView,*/ firstCollectionView,  secondSectionView, thirdSectionView, fourthSectionView)
+        contentStackView.addArrangedSubViews(firstCollectionView,  secondSectionView, thirdSectionView, fourthSectionView)
     }
     
     override func setLayout() {
@@ -49,9 +51,6 @@ final class AppViewController: BaseViewController {
             $0.width.equalTo(scrollView)
             $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
-//        firstSectionView.snp.makeConstraints {
-//            $0.height.equalTo(300)
-//        }
         firstCollectionView.snp.makeConstraints {
             $0.height.equalTo(300)
         }
@@ -65,7 +64,7 @@ final class AppViewController: BaseViewController {
             $0.height.equalTo(350)
         }
     }
-
+    
     private func setCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -82,6 +81,8 @@ final class AppViewController: BaseViewController {
             $0.delegate = self
             $0.dataSource = self
             $0.showsHorizontalScrollIndicator = false
+            $0.isPagingEnabled = false
+            $0.decelerationRate = .fast // 사용자가 손가락을 들어 올린 후 감속도를 결정
         }
     }
 }
@@ -99,7 +100,27 @@ extension AppViewController: UICollectionViewDataSource {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: FirstSectionViewCell.identifier, for: indexPath) as? FirstSectionViewCell else {
             return UICollectionViewCell()
         }
-//        item.configuration(app: appList[indexPath.row])
+        //        item.configuration(app: appList[indexPath.row])
         return item
+    }
+}
+
+extension AppViewController: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        guard let layout = firstCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        
+        let estimatedIndex = scrollView.contentOffset.x / cellWidthIncludingSpacing
+        let index: Int
+        if velocity.x > 0 {
+            index = Int(ceil(estimatedIndex))
+        } else if velocity.x < 0 {
+            index = Int(floor(estimatedIndex))
+        } else {
+            index = Int(round(estimatedIndex))
+        }
+        
+        targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
     }
 }
