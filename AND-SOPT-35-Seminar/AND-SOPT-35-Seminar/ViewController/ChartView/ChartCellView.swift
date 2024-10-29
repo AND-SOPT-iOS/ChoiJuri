@@ -11,7 +11,6 @@ class ChartCellView: BaseView {
     
     private let verticalStackView = UIStackView()
     private let iconImageView = UIImageView()
-//    private let rankingLabel = UILabel()
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
     private let downloadButton = UIButton()
@@ -38,9 +37,6 @@ class ChartCellView: BaseView {
             $0.distribution = .equalSpacing
             $0.spacing = 4
         }
-//        rankingLabel.do {
-//            $0.font = .systemFont(ofSize: 20, weight: .bold)
-//        }
         subTitleLabel.do {
             $0.font = .systemFont(ofSize: 14)
             $0.textColor = .systemGray
@@ -53,7 +49,7 @@ class ChartCellView: BaseView {
     }
     
     override func addViews() {
-        addSubviews(iconImageView, /*rankingLabel,*/ verticalStackView, downloadButton)
+        addSubviews(iconImageView, verticalStackView, downloadButton)
         verticalStackView.addArrangedSubViews(titleLabel, subTitleLabel)
     }
     
@@ -63,17 +59,9 @@ class ChartCellView: BaseView {
             $0.leading.equalToSuperview().offset(20)
             $0.size.equalTo(40)
         }
-//        
-//        rankingLabel.snp.makeConstraints {
-//            $0.leading.equalTo(iconImageView.snp.trailing).offset(8)
-//            $0.top.equalToSuperview().offset(12)
-//        }
-        
         verticalStackView.snp.makeConstraints {
-//            $0.leading.equalTo(rankingLabel.snp.trailing).offset(15)
             $0.leading.equalTo(iconImageView.snp.trailing).offset(15)
             $0.trailing.equalTo(downloadButton.snp.leading).offset(-20)
-//            $0.top.equalToSuperview()/*.inset(12)*/
             $0.centerY.equalToSuperview()
         }
         
@@ -87,7 +75,6 @@ class ChartCellView: BaseView {
     
     func configure(app: App) {
         iconImageView.image = app.iconImage
-//        rankingLabel.text = app.ranking.description
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle
         //      downloadButton.setTitle(app.downloadState.title, for: .normal)
