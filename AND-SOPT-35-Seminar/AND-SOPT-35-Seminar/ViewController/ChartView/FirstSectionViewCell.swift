@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class FirstSectionView: BaseView {
+final class FirstSectionViewCell: UICollectionViewCell {
+    
+    static let identifier = "FirstSectionViewCell"
     
     private let contentStackView = UIStackView()
     private let firstLabel = UILabel()
@@ -19,13 +21,15 @@ final class FirstSectionView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
+        initAttributes()
+        addViews()
+        setLayout()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func initAttributes() {
+    private func initAttributes() {
         contentStackView.do {
             $0.axis = .vertical
             $0.alignment = .leading
@@ -55,13 +59,13 @@ final class FirstSectionView: BaseView {
         }
     }
     
-    override func addViews() {
+    private func addViews() {
         addSubview(contentStackView)
         contentStackView.addArrangedSubViews(firstLabel, titleLabel, subtitleLabel, cardView)
         cardView.addSubviews(appImageView, chartCellView)
     }
     
-    override func setLayout() {
+    private func setLayout() {
         contentStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
         }
