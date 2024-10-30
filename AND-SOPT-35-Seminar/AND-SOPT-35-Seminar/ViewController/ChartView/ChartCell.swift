@@ -36,8 +36,8 @@ class ChartCell: UITableViewCell {
     }
     
     private func initAttributes() {
-        
         buttonConfig.cornerStyle = .capsule
+        
         titleLabel.do {
             $0.numberOfLines = 2
             $0.font = .systemFont(ofSize: 18)
@@ -100,11 +100,18 @@ class ChartCell: UITableViewCell {
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle
         if app.downloadState == .redownload {
-            downloadButton.setTitle("", for: .normal)
             downloadButton.setImage(UIImage(systemName: "icloud.and.arrow.down"), for: .normal)
         } else {
             downloadButton.setTitle(app.downloadState.rawValue, for: .normal)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        downloadButton.setTitle("", for: .normal)
+        downloadButton.setImage(nil, for: .normal)
+        downloadButton.configuration = buttonConfig
     }
 }
 

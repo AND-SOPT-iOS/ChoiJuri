@@ -62,6 +62,7 @@ extension ChartViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.configure(app: appList[indexPath.row])
+        
         return cell
     }
 }
