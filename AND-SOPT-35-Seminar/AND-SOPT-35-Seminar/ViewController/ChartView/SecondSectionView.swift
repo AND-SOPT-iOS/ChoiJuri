@@ -16,7 +16,10 @@ final class SecondSectionView: BaseView {
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let viewButton = UIButton()
-    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private let collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewLayout()
+    )
     
     weak var delegate: ChartDelegate?
     
@@ -90,6 +93,7 @@ final class SecondSectionView: BaseView {
                 AppCollectionCell.self,
                 forCellWithReuseIdentifier: AppCollectionCell.identifier
             )
+            $0.delegate = self
             $0.dataSource = self
             $0.showsHorizontalScrollIndicator = false
             $0.decelerationRate = .fast
@@ -101,6 +105,10 @@ final class SecondSectionView: BaseView {
     func navigateToChart() {
         delegate?.navigateToChart()
     }
+}
+
+extension SecondSectionView: UICollectionViewDelegate {
+    
 }
 
 extension SecondSectionView: UICollectionViewDataSource {

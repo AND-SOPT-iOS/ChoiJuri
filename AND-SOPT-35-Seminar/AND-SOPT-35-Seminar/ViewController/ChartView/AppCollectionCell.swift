@@ -78,7 +78,7 @@ final class AppCollectionCell: UICollectionViewCell {
         downloadButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.width.equalTo(70)
+            $0.width.equalTo(85)
             $0.height.equalTo(35)
         }
     }
@@ -87,5 +87,11 @@ final class AppCollectionCell: UICollectionViewCell {
         iconImageView.image = app.iconImage
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle
+        if app.downloadState == .redownload {
+            downloadButton.setTitle("", for: .normal)
+            downloadButton.setImage(UIImage(systemName: "icloud.and.arrow.down"), for: .normal)
+        } else {
+            downloadButton.setTitle(app.downloadState.rawValue, for: .normal)
+        }
     }
 }
