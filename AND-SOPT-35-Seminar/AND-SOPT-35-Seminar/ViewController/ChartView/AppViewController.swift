@@ -65,50 +65,26 @@ final class AppViewController: BaseViewController {
         let safeArea = view.safeAreaLayoutGuide
         
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(
-                safeArea
-            )
-            $0.leading.trailing.equalTo(
-                safeArea
-            ).inset(
-                20
-            )
-            $0.bottom.equalTo(
-                safeArea
-            ).offset(
-                3
-            )
+            $0.top.equalTo(safeArea)
+            $0.leading.trailing.equalTo(safeArea).inset(20)
+            $0.bottom.equalTo(safeArea).offset(3)
         }
         contentStackView.snp.makeConstraints {
-            $0.edges.equalTo(
-                scrollView
-            )
-            $0.width.equalTo(
-                scrollView
-            )
-            $0.height.greaterThanOrEqualToSuperview().priority(
-                .low
-            )
+            $0.edges.equalTo(scrollView)
+            $0.width.equalTo(scrollView)
+            $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
         firstCollectionView.snp.makeConstraints {
-            $0.height.equalTo(
-                320
-            )
+            $0.height.equalTo(320)
         }
         secondSectionView.snp.makeConstraints {
-            $0.height.equalTo(
-                320
-            )
+            $0.height.equalTo(320)
         }
         thirdSectionView.snp.makeConstraints {
-            $0.height.equalTo(
-                320
-            )
+            $0.height.equalTo(320)
         }
         fourthSectionView.snp.makeConstraints {
-            $0.height.equalTo(
-                320
-            )
+            $0.height.equalTo(320)
         }
     }
     
