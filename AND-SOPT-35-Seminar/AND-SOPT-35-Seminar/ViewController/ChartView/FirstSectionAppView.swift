@@ -85,7 +85,7 @@ class FirstSectionAppView: BaseView {
         downloadButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-20)
-            $0.width.equalTo(70)
+            $0.width.equalTo(85)
             $0.height.equalTo(35)
         }
     }
@@ -94,6 +94,11 @@ class FirstSectionAppView: BaseView {
         iconImageView.image = app.iconImage
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle
-        //      downloadButton.setTitle(app.downloadState.title, for: .normal)
+        if app.downloadState == .redownload {
+            downloadButton.setTitle("", for: .normal)
+            downloadButton.setImage(UIImage(systemName: "icloud.and.arrow.down"), for: .normal)
+        } else {
+            downloadButton.setTitle(app.downloadState.rawValue, for: .normal)
+        }
     }
 }

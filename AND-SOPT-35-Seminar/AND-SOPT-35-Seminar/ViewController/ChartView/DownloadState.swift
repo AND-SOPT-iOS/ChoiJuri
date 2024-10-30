@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum DownloadState {
-    case installed
-    case download
-    case redownload
-    case update
+enum DownloadState: String {
+    case installed = "열기"
+    case download = "받기"
+    case redownload = ""
+    case update = "업데이트"
 }

@@ -94,6 +94,5 @@ final class FirstSectionViewCell: UICollectionViewCell {
         titleLabel.text = app.title
         subtitleLabel.text = app.subTitle
         appView.configure(app: app)
-        //      downloadButton.setTitle(app.downloadState.title, for: .normal)
     }
 }
