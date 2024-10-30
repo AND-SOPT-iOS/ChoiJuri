@@ -54,9 +54,6 @@ final class FirstSectionViewCell: UICollectionViewCell {
             $0.clipsToBounds = true
 //            $0.contentMode = .scaleAspectFill
         }
-//        appView.do {
-//            $0.configure(app: App.mockData[0])
-//        }
     }
     
     private func addViews() {
