@@ -32,6 +32,10 @@ final class AppCollectionCell: UICollectionViewCell {
     private func initAttributes() {
         
         buttonConfig.cornerStyle = .capsule
+        iconImageView.do {
+            $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
+        }
         titleLabel.do {
             $0.numberOfLines = 2
             $0.font = .systemFont(ofSize: 18)
