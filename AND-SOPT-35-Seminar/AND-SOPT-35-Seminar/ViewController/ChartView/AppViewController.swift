@@ -25,6 +25,8 @@ final class AppViewController: BaseViewController {
         super.viewDidLoad()
         setCollectionView()
         navigationItem.title = "금융"
+//        navigationController?.navigationBar.prefersLargeTitles = false
+        
     }
     
     override func initAttributes() {
