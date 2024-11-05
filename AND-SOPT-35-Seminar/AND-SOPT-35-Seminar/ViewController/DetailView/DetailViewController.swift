@@ -47,14 +47,27 @@ final class DetailViewController: BaseViewController {
     override func addViews() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentStackView)
-        contentStackView.addArrangedSubViews(titleView, firstDivider, informationView, secondDivider, newVersionView, thirdDivider, previewView, fourthDivider, descriptionView, fifthDivider, reviewView)
+        contentStackView.addArrangedSubViews(
+            titleView,
+            firstDivider,
+            informationView,
+            secondDivider,
+            newVersionView,
+            thirdDivider,
+            previewView,
+            fourthDivider,
+            descriptionView,
+            fifthDivider,
+            reviewView
+        )
     }
     
     override func setLayout() {
         let safeArea = view.safeAreaLayoutGuide
         
         scrollView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(safeArea).inset(20)
+            $0.top.equalTo(safeArea)
+            $0.leading.trailing.equalTo(safeArea).inset(20)
             $0.bottom.equalTo(safeArea).offset(3)
         }
         contentStackView.snp.makeConstraints {

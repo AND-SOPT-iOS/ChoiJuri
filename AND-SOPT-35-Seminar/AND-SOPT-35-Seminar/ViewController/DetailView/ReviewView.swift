@@ -27,14 +27,10 @@ final class ReviewView: BaseView {
     private let tapLabel = UILabel()
     private let tapStarLabel = UILabel()
     
-    private let reviewContentStackView = UIStackView()
-    private let reviewContentTitleStackView = UIStackView()
-    private let reviewContentTitleLabel = UILabel()
-    private let reviewContentDateLabel = UILabel()
-    private let reviewContentStarStackView = UIStackView()
-    private let reviewContentStarLabel = UILabel()
-    private let reviewWriterLabel = UILabel()
-    private let reviewContentLabel = UILabel()
+    private let reviewCollectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout()
+    )
     
     private let reviewWriteStackView = UIStackView()
     var reviewWriteButton = UIButton()
@@ -44,6 +40,7 @@ final class ReviewView: BaseView {
     
     init() {
         super.init(frame: .zero)
+        setCollectionView()
     }
     
     required init?(coder: NSCoder) {
@@ -108,40 +105,6 @@ final class ReviewView: BaseView {
             $0.font = .systemFont(ofSize: 30)
         }
         
-        reviewContentStackView.do {
-            $0.axis = .vertical
-            $0.backgroundColor = .systemGray5
-            $0.spacing = 5
-            $0.layer.cornerRadius = 5
-            $0.layer.masksToBounds = true
-            $0.clipsToBounds = true
-        }
-        reviewContentTitleStackView.do {
-            $0.axis = .horizontal
-        }
-        reviewContentStarStackView.do {
-            $0.axis = .horizontal
-        }
-        reviewContentTitleLabel.do {
-            $0.text = "최주리"
-            $0.font = .systemFont(ofSize: 18, weight: .bold)
-        }
-        reviewContentDateLabel.do {
-            $0.text = "10월 17일  "
-            $0.textColor = .systemGray
-        }
-        reviewContentStarLabel.do {
-            $0.text = "★★★★★"
-            $0.textColor = .systemYellow
-        }
-        reviewWriterLabel.do {
-            $0.text = "ISTP"
-            $0.textColor = .systemGray
-        }
-        reviewContentLabel.do {
-            $0.text = "\n동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세.\n"
-            $0.numberOfLines = 0
-        }
         reviewWriteStackView.do {
             $0.axis = .horizontal
         }
@@ -159,16 +122,41 @@ final class ReviewView: BaseView {
     }
     override func addViews() {
         addSubview(reviewStackView)
-        reviewStackView.addArrangedSubViews(reviewTitleStackView, reviewScoreStackView, divider, tapStackView, reviewContentStackView, reviewWriteStackView)
-        reviewTitleStackView.addArrangedSubViews(reviewTitleLabel, UIView(), reviewMoreButton)
-        reviewScoreStackView.addArrangedSubViews(reviewNumStackView, starStackView)
-        reviewNumStackView.addArrangedSubViews(reviewNumLabel, reviewPerfectLabel)
-        starStackView.addArrangedSubViews(starImageView, allStarLabel)
-        tapStackView.addArrangedSubViews(tapLabel, UIView(), tapStarLabel)
-        reviewContentStackView.addArrangedSubViews(reviewContentTitleStackView, reviewContentStarStackView, reviewContentLabel)
-        reviewContentTitleStackView.addArrangedSubViews(reviewContentTitleLabel, reviewContentDateLabel)
-        reviewContentStarStackView.addArrangedSubViews(reviewContentStarLabel, UIView(), reviewWriterLabel)
-        reviewWriteStackView.addArrangedSubViews(reviewWriteButton, UIView(), backupButton)
+        reviewStackView.addArrangedSubViews(
+            reviewTitleStackView,
+            reviewScoreStackView,
+            divider,
+            tapStackView,
+            reviewCollectionView,
+            reviewWriteStackView
+        )
+        reviewTitleStackView.addArrangedSubViews(
+            reviewTitleLabel,
+            UIView(),
+            reviewMoreButton
+        )
+        reviewScoreStackView.addArrangedSubViews(
+            reviewNumStackView,
+            starStackView
+        )
+        reviewNumStackView.addArrangedSubViews(
+            reviewNumLabel,
+            reviewPerfectLabel
+        )
+        starStackView.addArrangedSubViews(
+            starImageView,
+            allStarLabel
+        )
+        tapStackView.addArrangedSubViews(
+            tapLabel,
+            UIView(),
+            tapStarLabel
+        )
+        reviewWriteStackView.addArrangedSubViews(
+            reviewWriteButton,
+            UIView(),
+            backupButton
+        )
     }
     override func setLayout() {
         reviewStackView.snp.makeConstraints {
@@ -183,16 +171,8 @@ final class ReviewView: BaseView {
         divider.snp.makeConstraints {
             $0.height.equalTo(1)
         }
-        
-        reviewContentTitleStackView.snp.makeConstraints {
-            $0.right.left.equalToSuperview().inset(10)
-            $0.top.equalToSuperview().inset(10)
-        }
-        reviewContentStarStackView.snp.makeConstraints {
-            $0.right.left.equalToSuperview().inset(10)
-        }
-        reviewContentLabel.snp.makeConstraints {
-            $0.right.left.equalToSuperview().inset(10)
+        reviewCollectionView.snp.makeConstraints {
+            $0.height.equalTo(200)
         }
     }
     
@@ -204,6 +184,91 @@ final class ReviewView: BaseView {
     @objc
     func presentReviewWriteView() {
         delegate?.presentReviewWriteView()
+    }
+    
+    private func setCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(
+            width: UIScreen.main.bounds.width - 40,
+            height: 200
+        )
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 20
+        
+        reviewCollectionView.do {
+            $0.setCollectionViewLayout(
+                layout,
+                animated: true
+            )
+            $0.register(
+                ReviewCell.self,
+                forCellWithReuseIdentifier: ReviewCell.identifier
+            )
+            $0.delegate = self
+            $0.dataSource = self
+            $0.showsHorizontalScrollIndicator = false
+            $0.isPagingEnabled = false
+            $0.decelerationRate = .fast // 사용자가 손가락을 들어 올린 후 감속도를 결정
+        }
+    }
+}
+
+extension ReviewView: UICollectionViewDelegate {
+    
+}
+
+extension ReviewView: UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return 3
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let item = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ReviewCell.identifier,
+            for: indexPath
+        ) as? ReviewCell else {
+            return UICollectionViewCell()
+        }
+//        item.configure(
+//            app: appList[indexPath.row]
+//        )
+        return item
+    }
+}
+
+extension ReviewView: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        guard let layout = reviewCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        
+        let estimatedIndex = scrollView.contentOffset.x / cellWidthIncludingSpacing
+        let index: Int
+        if velocity.x > 0 {
+            index = Int(ceil(estimatedIndex))
+        } else if velocity.x < 0 {
+            index = Int(floor(estimatedIndex))
+        } else {
+            index = Int(round(estimatedIndex))
+        }
+        
+        targetContentOffset.pointee = CGPoint(
+            x: CGFloat(index) * cellWidthIncludingSpacing,
+            y: 0
+        )
     }
 }
 

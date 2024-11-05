@@ -1,31 +1,25 @@
 //
-//  ChartCell.swift
+//  AppCollectionCell.swift
 //  AND-SOPT-35-Seminar
 //
-//  Created by 최주리 on 10/26/24.
+//  Created by 최주리 on 10/30/24.
 //
 
 import UIKit
-import SnapKit
-import Then
 
-class ChartCell: UITableViewCell {
+final class AppCollectionCell: UICollectionViewCell {
     
-    static let identifier: String = "ChartCell"
+    static let identifier = "AppCollectionCell"
     
     private let verticalStackView = UIStackView()
     private let iconImageView = UIImageView()
-    private let rankingLabel = UILabel()
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
     private let downloadButton = UIButton()
     private var buttonConfig = UIButton.Configuration.gray()
     
-    override init(
-        style: UITableViewCell.CellStyle,
-        reuseIdentifier: String?) {
-            
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         initAttributes()
         addViews()
         setLayout()
@@ -36,8 +30,8 @@ class ChartCell: UITableViewCell {
     }
     
     private func initAttributes() {
-        buttonConfig.cornerStyle = .capsule
         
+        buttonConfig.cornerStyle = .capsule
         iconImageView.do {
             $0.layer.cornerRadius = 10
             $0.clipsToBounds = true
@@ -52,70 +46,56 @@ class ChartCell: UITableViewCell {
             $0.distribution = .equalSpacing
             $0.spacing = 4
         }
-        rankingLabel.do {
-            $0.font = .systemFont(ofSize: 20, weight: .bold)
-        }
         subTitleLabel.do {
             $0.font = .systemFont(ofSize: 14)
             $0.textColor = .systemGray
         }
         downloadButton.do {
             $0.configuration = buttonConfig
+            $0.setTitle("받기", for: .normal)
             $0.setTitleColor(.systemBlue, for: .normal)
         }
     }
     
     private func addViews() {
         addSubviews(iconImageView,
-                    rankingLabel,
                     verticalStackView,
                     downloadButton)
-        
         verticalStackView.addArrangedSubViews(titleLabel,
                                               subTitleLabel)
     }
     
     private func setLayout() {
+        
         iconImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(10)
-            $0.size.equalTo(50)
+            $0.leading.equalToSuperview()
+            $0.size.equalTo(60)
         }
-        rankingLabel.snp.makeConstraints {
-            $0.leading.equalTo(iconImageView.snp.trailing).offset(8)
-            $0.top.equalToSuperview().offset(18)
-        }
+        
         verticalStackView.snp.makeConstraints {
-            $0.leading.equalTo(rankingLabel.snp.trailing).offset(15)
+            $0.leading.equalTo(iconImageView.snp.trailing).offset(15)
             $0.trailing.equalTo(downloadButton.snp.leading).offset(-20)
-            $0.top.equalToSuperview().inset(18)
+            $0.top.equalToSuperview().inset(12)
         }
+        
         downloadButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.trailing.equalToSuperview()
             $0.width.equalTo(85)
             $0.height.equalTo(35)
         }
     }
     
-    func configure(app: App) {
+    func configuration(app: App) {
         iconImageView.image = app.iconImage
-        rankingLabel.text = app.ranking.description
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle
         if app.downloadState == .redownload {
+            downloadButton.setTitle("", for: .normal)
             downloadButton.setImage(UIImage(systemName: "icloud.and.arrow.down"), for: .normal)
         } else {
             downloadButton.setTitle(app.downloadState.rawValue, for: .normal)
         }
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        downloadButton.setTitle("", for: .normal)
-        downloadButton.setImage(nil, for: .normal)
-        downloadButton.configuration = buttonConfig
-    }
 }
-

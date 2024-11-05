@@ -7,50 +7,62 @@
 
 import UIKit
 
-class ChartViewController: UIViewController {
+class ChartViewController: BaseViewController {
     
     private let tableView = UITableView()
     private let appList = App.mockData
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
-        view.addSubview(tableView)
-        setLayout()
-        setStyle()
-        
+        navigationItem.title = "인기 차트"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func setStyle() {
-        
+    override func initAttributes() {
         tableView.do {
             $0.register(
                 ChartCell.self,
                 forCellReuseIdentifier: ChartCell.identifier)
-            $0.rowHeight = 100
+//            $0.rowHeight = UITableView.automaticDimension
+            $0.rowHeight = 90
             $0.dataSource = self
+            $0.delegate = self
         }
     }
     
-    private func setLayout() {
+    override func addViews() {
+        view.addSubview(tableView)
+    }
+    
+    override func setLayout() {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
 }
 
+extension ChartViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, 
+                   didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 extension ChartViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, 
+                   numberOfRowsInSection section: Int) -> Int {
         return appList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, 
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChartCell.identifier, for: indexPath) as? ChartCell else {
             return UITableViewCell()
         }
         cell.configure(app: appList[indexPath.row])
+        
         return cell
     }
 }

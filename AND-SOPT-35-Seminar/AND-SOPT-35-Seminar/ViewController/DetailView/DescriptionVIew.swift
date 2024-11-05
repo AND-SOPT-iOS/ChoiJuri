@@ -57,9 +57,19 @@ final class DescriptionVIew: BaseView {
     }
     override func addViews() {
         addSubview(descriptionStackView)
-        descriptionStackView.addArrangedSubViews(descriptionLabel, developerStackView)
-        developerStackView.addArrangedSubViews(developerLabelStackView, UIView(), developerMoreButton)
-        developerLabelStackView.addArrangedSubViews(developerLabel, developerSubLabel)
+        descriptionStackView.addArrangedSubViews(
+            descriptionLabel,
+            developerStackView
+        )
+        developerStackView.addArrangedSubViews(
+            developerLabelStackView,
+            UIView(),
+            developerMoreButton
+        )
+        developerLabelStackView.addArrangedSubViews(
+            developerLabel,
+            developerSubLabel
+        )
     }
     override func setLayout() {
         descriptionStackView.snp.makeConstraints {

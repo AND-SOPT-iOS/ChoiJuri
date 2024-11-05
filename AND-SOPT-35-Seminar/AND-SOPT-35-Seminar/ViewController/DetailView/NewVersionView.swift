@@ -64,20 +64,26 @@ final class NewVersionView: BaseView {
     
     override func addViews() {
         addSubview(newStackView)
-        newStackView.addArrangedSubViews(newTitleStackView, newSubTitleStackView, newDescriptionLabel)
-        newTitleStackView.addArrangedSubViews(newTitleLabel, UIView(), versionRecordButton)
-        newSubTitleStackView.addArrangedSubViews(newVersionLabel, UIView(), newDateLabel)
+        newStackView.addArrangedSubViews(
+            newTitleStackView,
+            newSubTitleStackView,
+            newDescriptionLabel
+        )
+        newTitleStackView.addArrangedSubViews(
+            newTitleLabel,
+            UIView(),
+            versionRecordButton
+        )
+        newSubTitleStackView.addArrangedSubViews(
+            newVersionLabel,
+            UIView(),
+            newDateLabel
+        )
     }
     
     override func setLayout() {
         newStackView.snp.makeConstraints {
             $0.width.equalToSuperview().inset(10)
-        }
-        newTitleStackView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-        }
-        newSubTitleStackView.snp.makeConstraints {
-            $0.width.equalToSuperview()
         }
     }
     

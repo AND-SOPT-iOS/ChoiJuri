@@ -21,51 +21,162 @@ struct App {
 extension App {
     static let mockData: [App] = [
         App(
-            iconImage: UIImage(systemName: "questionmark")!,
-            ranking: 0,
-            title: "카카오톡",
-            subTitle: "모든 연결의 시작",
-            category: "소셜 네트워킹",
-            downloadState: .installed
-        ),
-        App(
-            iconImage: UIImage(systemName: "questionmark")!,
+            iconImage: .thumbnail,
             ranking: 1,
-            title: "에브리타임",
-            subTitle: "함께하는 대학생활",
-            category: "소셜 네트워킹",
+            title: "토스",
+            subTitle: "금융이 쉬워진다",
+            category: "금융",
             downloadState: .installed
         ),
         App(
-            iconImage: UIImage(systemName: "questionmark")!,
+            iconImage: .silson241,
             ranking: 2,
-            title: "밴드-모임이 쉬워진다!",
-            subTitle: "소모임, 챌린지, 스터디, 취미모임",
-            category: "소셜 네트워킹",
+            title: "실손24",
+            subTitle: "간편한 실손보험 청구",
+            category: "금융",
             downloadState: .installed
         ),
         App(
-            iconImage: UIImage(systemName: "questionmark")!,
+            iconImage: .hyundaicard1,
             ranking: 3,
-            title: "Lysn",
-            subTitle: "최애와 나만의 프라이빗 메시지",
-            category: "소셜 네트워킹",
-            downloadState: .installed
+            title: "빗썸",
+            subTitle: "No.1 가상자산 플랫폼",
+            category: "금융",
+            downloadState: .download
         ),
         App(
-            iconImage: UIImage(systemName: "questionmark")!,
+            iconImage: .naverpay,
             ranking: 4,
-            title: "블라인드 Blind",
-            subTitle: "모든 변화의 시작",
-            category: "소셜 네트워킹",
+            title: "네이버페이",
+            subTitle: "지갑 없이 매장에서 결제",
+            category: "금융",
+            downloadState: .redownload
+        ),
+        App(
+            iconImage: .kakaopay,
+            ranking: 5,
+            title: "카카오페이",
+            subTitle: "마음 놓고 금융하다",
+            category: "금융",
+            downloadState: .update
+        ),
+        App(
+            iconImage: .kbank1,
+            ranking: 6,
+            title: "KB스타뱅킹",
+            subTitle: "모바일신분증, 결제, 통신도 다 되는 은행",
+            category: "금융",
+            downloadState: .download
+        ),
+        App(
+            iconImage: .monimo,
+            ranking: 7,
+            title: "monimo (모니모, 삼성금융네트웍스)",
+            subTitle: "모이는 금융, 커지는 혜택! monimo 모니모",
+            category: "금융",
+            downloadState: .update
+        ),
+        App(
+            iconImage: .kbpay,
+            ranking: 8,
+            title: "KB Pay",
+            subTitle: "모든 금융을 한번에, 한손에, 한눈에 담다",
+            category: "금융",
             downloadState: .installed
         ),
         App(
-            iconImage: UIImage(systemName: "questionmark")!,
-            ranking: 5,
-            title: "당근",
-            subTitle: "당신 근처의 지역 생활 커뮤니티",
-            category: "소셜 네트워킹",
+            iconImage: .hyundaidepartment1,
+            ranking: 9,
+            title: "나무증권 - NH투자증권 MTS",
+            subTitle: "쉽고 편한 국내주식, 해외주식",
+            category: "금융",
+            downloadState: .redownload
+        ),
+        App(
+            iconImage: .kakaopay,
+            ranking: 10,
+            title: "NH올원뱅크",
+            subTitle: "금융",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .naverpay,
+            ranking: 11,
+            title: "트래블월렛 - travel Pay",
+            subTitle: "페이에 세계를 담다",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .kbank1,
+            ranking: 12,
+            title: "케이뱅크 (Kbank)",
+            subTitle: "make money",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .kakaobank1,
+            ranking: 13,
+            title: "카카오뱅크",
+            subTitle: "이미 모두의 은행",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .toss1,
+            ranking: 14,
+            title: "V3 Mobile Plus",
+            subTitle: "코스콤 통합인증 / 알림장 메시지 서비스",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .hyundaicard1,
+            ranking: 15,
+            title: "현대카드",
+            subTitle: "금융",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .mobileTmoney,
+            ranking: 16,
+            title: "모바일티머니",
+            subTitle: "금융",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .kbpay,
+            ranking: 17,
+            title: "빗썸",
+            subTitle: "No.1 가상자산 플랫폼",
+            category: "금융",
+            downloadState: .installed
+        ),App(
+            iconImage: .monimo,
+            ranking: 18,
+            title: "NH스마트뱅킹",
+            subTitle: "한번에 편하게!",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .pass,
+            ranking: 19,
+            title: "PASS by SKT",
+            subTitle: "인증을 넘어 일상으로 PASS",
+            category: "금융",
+            downloadState: .installed
+        ),
+        App(
+            iconImage: .silson241,
+            ranking: 20,
+            title: "우리 WON 뱅킹",
+            subTitle: "금융",
+            category: "금융",
             downloadState: .installed
         ),
     ]
