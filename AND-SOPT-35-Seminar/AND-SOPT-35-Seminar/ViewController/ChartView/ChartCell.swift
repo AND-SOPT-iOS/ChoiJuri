@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ChartCell: UITableViewCell {
+final class ChartCell: UITableViewCell {
     
     static let identifier: String = "ChartCell"
     

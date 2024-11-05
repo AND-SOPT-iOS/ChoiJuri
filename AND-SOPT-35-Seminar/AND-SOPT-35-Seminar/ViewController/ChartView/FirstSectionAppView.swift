@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstSectionAppView: BaseView {
+final class FirstSectionAppView: BaseView {
     
     private let verticalStackView = UIStackView()
     private let iconImageView = UIImageView()

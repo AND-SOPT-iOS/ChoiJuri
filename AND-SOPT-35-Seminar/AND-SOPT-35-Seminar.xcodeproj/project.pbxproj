@@ -37,6 +37,19 @@
 		CB051BFA2CD0D78C00A3B223 /* FourthSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BF92CD0D78C00A3B223 /* FourthSectionView.swift */; };
 		CB051BFC2CD1458800A3B223 /* AppCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BFB2CD1458800A3B223 /* AppCollectionCell.swift */; };
 		CB051BFF2CD2239C00A3B223 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051BFE2CD2239C00A3B223 /* ReviewCell.swift */; };
+		CB051C052CD5F0ED00A3B223 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CB051C042CD5F0ED00A3B223 /* Alamofire */; };
+		CB051C092CD5F38300A3B223 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C082CD5F38300A3B223 /* Environment.swift */; };
+		CB051C0B2CD5F3D200A3B223 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C0A2CD5F3D200A3B223 /* NetworkError.swift */; };
+		CB051C0F2CD5F94E00A3B223 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C0E2CD5F94E00A3B223 /* UserService.swift */; };
+		CB051C112CD5FEC300A3B223 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C102CD5FEC200A3B223 /* LoginViewController.swift */; };
+		CB051C132CD6009900A3B223 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C122CD6009900A3B223 /* LoginService.swift */; };
+		CB051C152CD6018F00A3B223 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C142CD6018F00A3B223 /* LoginRequest.swift */; };
+		CB051C172CD60BBC00A3B223 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C162CD60BBC00A3B223 /* LoginResponse.swift */; };
+		CB051C192CD74CB100A3B223 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C182CD74CB100A3B223 /* TabBarController.swift */; };
+		CB051C1B2CD74E7400A3B223 /* NetworkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C1A2CD74E7400A3B223 /* NetworkMainViewController.swift */; };
+		CB051C1D2CD7561900A3B223 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C1C2CD7561900A3B223 /* RegisterViewController.swift */; };
+		CB051C1F2CD7620100A3B223 /* HobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C1E2CD7620100A3B223 /* HobbyViewController.swift */; };
+		CB051C212CD7757000A3B223 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C202CD7757000A3B223 /* UserResponse.swift */; };
 		CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */; };
 		CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */; };
 		CB2E9CF02CB101C6007D0B9B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEF2CB101C6007D0B9B /* DetailViewController.swift */; };
@@ -72,6 +85,19 @@
 		CB051BF92CD0D78C00A3B223 /* FourthSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthSectionView.swift; sourceTree = "<group>"; };
 		CB051BFB2CD1458800A3B223 /* AppCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionCell.swift; sourceTree = "<group>"; };
 		CB051BFE2CD2239C00A3B223 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		CB051C072CD5F26C00A3B223 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		CB051C082CD5F38300A3B223 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		CB051C0A2CD5F3D200A3B223 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CB051C0E2CD5F94E00A3B223 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		CB051C102CD5FEC200A3B223 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CB051C122CD6009900A3B223 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		CB051C142CD6018F00A3B223 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		CB051C162CD60BBC00A3B223 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		CB051C182CD74CB100A3B223 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CB051C1A2CD74E7400A3B223 /* NetworkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMainViewController.swift; sourceTree = "<group>"; };
+		CB051C1C2CD7561900A3B223 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CB051C1E2CD7620100A3B223 /* HobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyViewController.swift; sourceTree = "<group>"; };
+		CB051C202CD7757000A3B223 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		CB2E9CE82CB101C6007D0B9B /* AND-SOPT-35-Seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AND-SOPT-35-Seminar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB051BA02CBF750800A3B223 /* SnapKit in Frameworks */,
+				CB051C052CD5F0ED00A3B223 /* Alamofire in Frameworks */,
 				CB051BA52CBF752E00A3B223 /* Then in Frameworks */,
 				CB051BA22CBF750800A3B223 /* SnapKit-Dynamic in Frameworks */,
 			);
@@ -116,11 +143,13 @@
 		CB051BAB2CBF7D8100A3B223 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CB051C062CD5F13600A3B223 /* NetworkSeminar */,
 				CB051BD92CCCC13000A3B223 /* ChartView */,
 				CB051BC02CC01F2C00A3B223 /* DetailView */,
 				CB051BC12CC01F4400A3B223 /* VersionRecordViewController.swift */,
 				CB051BC32CC023B800A3B223 /* ReviewListViewController.swift */,
 				CB051BC52CC0242C00A3B223 /* ReviewWriteViewController.swift */,
+				CB051C182CD74CB100A3B223 /* TabBarController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -131,6 +160,7 @@
 				CB2E9CF42CB101CC007D0B9B /* Assets.xcassets */,
 				CB2E9CF62CB101CC007D0B9B /* LaunchScreen.storyboard */,
 				CB2E9CF92CB101CC007D0B9B /* Info.plist */,
+				CB051C082CD5F38300A3B223 /* Environment.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -177,6 +207,24 @@
 				CB051BFB2CD1458800A3B223 /* AppCollectionCell.swift */,
 			);
 			path = ChartView;
+			sourceTree = "<group>";
+		};
+		CB051C062CD5F13600A3B223 /* NetworkSeminar */ = {
+			isa = PBXGroup;
+			children = (
+				CB051C072CD5F26C00A3B223 /* Config.xcconfig */,
+				CB051C0A2CD5F3D200A3B223 /* NetworkError.swift */,
+				CB051C0E2CD5F94E00A3B223 /* UserService.swift */,
+				CB051C102CD5FEC200A3B223 /* LoginViewController.swift */,
+				CB051C122CD6009900A3B223 /* LoginService.swift */,
+				CB051C142CD6018F00A3B223 /* LoginRequest.swift */,
+				CB051C162CD60BBC00A3B223 /* LoginResponse.swift */,
+				CB051C1A2CD74E7400A3B223 /* NetworkMainViewController.swift */,
+				CB051C1C2CD7561900A3B223 /* RegisterViewController.swift */,
+				CB051C1E2CD7620100A3B223 /* HobbyViewController.swift */,
+				CB051C202CD7757000A3B223 /* UserResponse.swift */,
+			);
+			path = NetworkSeminar;
 			sourceTree = "<group>";
 		};
 		CB2E9CDF2CB101C6007D0B9B = {
@@ -227,6 +275,7 @@
 				CB051B9F2CBF750800A3B223 /* SnapKit */,
 				CB051BA12CBF750800A3B223 /* SnapKit-Dynamic */,
 				CB051BA42CBF752E00A3B223 /* Then */,
+				CB051C042CD5F0ED00A3B223 /* Alamofire */,
 			);
 			productName = "AND-SOPT-35-Seminar";
 			productReference = CB2E9CE82CB101C6007D0B9B /* AND-SOPT-35-Seminar.app */;
@@ -259,6 +308,7 @@
 			packageReferences = (
 				CB051B9E2CBF750800A3B223 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CB051BA32CBF752E00A3B223 /* XCRemoteSwiftPackageReference "Then" */,
+				CB051C032CD5F0ED00A3B223 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = CB2E9CE92CB101C6007D0B9B /* Products */;
 			projectDirPath = "";
@@ -287,16 +337,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2E9CF02CB101C6007D0B9B /* DetailViewController.swift in Sources */,
+				CB051C0B2CD5F3D200A3B223 /* NetworkError.swift in Sources */,
 				CB051BFF2CD2239C00A3B223 /* ReviewCell.swift in Sources */,
 				CB051BBF2CC00CAC00A3B223 /* ReviewView.swift in Sources */,
 				CB051BBD2CC0008000A3B223 /* DescriptionVIew.swift in Sources */,
 				CB051BF22CCFEF1A00A3B223 /* FirstSectionAppView.swift in Sources */,
+				CB051C172CD60BBC00A3B223 /* LoginResponse.swift in Sources */,
+				CB051C152CD6018F00A3B223 /* LoginRequest.swift in Sources */,
+				CB051C0F2CD5F94E00A3B223 /* UserService.swift in Sources */,
+				CB051C1F2CD7620100A3B223 /* HobbyViewController.swift in Sources */,
 				CB051BC22CC01F4400A3B223 /* VersionRecordViewController.swift in Sources */,
 				CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */,
 				CB051BB92CBFC1E400A3B223 /* NewVersionView.swift in Sources */,
 				CB051BC42CC023B800A3B223 /* ReviewListViewController.swift in Sources */,
 				CB051BFA2CD0D78C00A3B223 /* FourthSectionView.swift in Sources */,
 				CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */,
+				CB051C1D2CD7561900A3B223 /* RegisterViewController.swift in Sources */,
 				CB051BB02CBF802800A3B223 /* TitleView.swift in Sources */,
 				CB051BEE2CCFD5A900A3B223 /* AppViewController.swift in Sources */,
 				CB051BDF2CCCC21E00A3B223 /* ChartViewController.swift in Sources */,
@@ -305,13 +361,19 @@
 				CB051BF02CCFD5DF00A3B223 /* FirstSectionViewCell.swift in Sources */,
 				CB051BBB2CBFCBBB00A3B223 /* PreviewView.swift in Sources */,
 				CB051BF82CD0D30700A3B223 /* ThirdSectionView.swift in Sources */,
+				CB051C092CD5F38300A3B223 /* Environment.swift in Sources */,
+				CB051C212CD7757000A3B223 /* UserResponse.swift in Sources */,
 				CB051BA92CBF7D5600A3B223 /* UIView+Extension.swift in Sources */,
 				CB051BB72CBF927D00A3B223 /* InformationView.swift in Sources */,
+				CB051C192CD74CB100A3B223 /* TabBarController.swift in Sources */,
 				CB051BB32CBF805400A3B223 /* BaseViewController.swift in Sources */,
 				CB051BDD2CCCC1F200A3B223 /* ChartCell.swift in Sources */,
 				CB051BF62CD0C99A00A3B223 /* ChartCollectionCell.swift in Sources */,
+				CB051C112CD5FEC300A3B223 /* LoginViewController.swift in Sources */,
+				CB051C1B2CD74E7400A3B223 /* NetworkMainViewController.swift in Sources */,
 				CB051BF42CCFF54900A3B223 /* SecondSectionView.swift in Sources */,
 				CB051BB52CBF82FC00A3B223 /* BaseView.swift in Sources */,
+				CB051C132CD6009900A3B223 /* LoginService.swift in Sources */,
 				CB051BC62CC0242C00A3B223 /* ReviewWriteViewController.swift in Sources */,
 				CB051BEA2CCE803800A3B223 /* DividerView.swift in Sources */,
 				CB051BAE2CBF7E1200A3B223 /* UIStackView+Extension.swift in Sources */,
@@ -335,6 +397,7 @@
 /* Begin XCBuildConfiguration section */
 		CB2E9CFA2CB101CC007D0B9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB051C072CD5F26C00A3B223 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -398,6 +461,7 @@
 		};
 		CB2E9CFB2CB101CC007D0B9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB051C072CD5F26C00A3B223 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -546,6 +610,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		CB051C032CD5F0ED00A3B223 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -563,6 +635,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CB051BA32CBF752E00A3B223 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		CB051C042CD5F0ED00A3B223 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB051C032CD5F0ED00A3B223 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
