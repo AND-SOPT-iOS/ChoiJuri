@@ -19,6 +19,14 @@ final class NetworkMainViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            let nextViewController = HobbyViewController()
+            navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
+    
     override func initAttributes() {
         contentStackView.do {
             $0.axis = .vertical

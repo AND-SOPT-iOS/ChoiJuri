@@ -1,0 +1,88 @@
+//
+//  ChangeHobbyViewController.swift
+//  AND-SOPT-35-Seminar
+//
+//  Created by 최주리 on 11/6/24.
+//
+
+import UIKit
+
+final class ChangeHobbyViewController: BaseViewController {
+    
+    private let userService = UserService()
+    
+    private let contentStackView = UIStackView()
+    private let titleLabel = UILabel()
+    private let hobbyTextField = UITextField()
+    private let passwordTextFied = UITextField()
+    private let changeButton = UIButton()
+    
+    private let buttonConfig = UIButton.Configuration.filled()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func initAttributes() {
+        contentStackView.do {
+            $0.axis = .vertical
+            $0.alignment = .center
+            $0.spacing = 10
+        }
+        titleLabel.do {
+            $0.text = "내 취미 변경하기"
+        }
+        hobbyTextField.do {
+            $0.placeholder = "\(UserDefaults.standard.string(forKey: "hobby") ?? "취미를 입력하세요")"
+        }
+        passwordTextFied.do {
+            $0.placeholder = "비밀번호를 입력하세요"
+        }
+        changeButton.do {
+            $0.setTitle("변경하기", for: .normal)
+            $0.configuration = buttonConfig
+            $0.addTarget(self, action: #selector(changeButtonTapped), for: .touchUpInside)
+        }
+    }
+    
+    override func addViews() {
+        view.addSubview(contentStackView)
+        contentStackView.addArrangedSubViews(
+            titleLabel,
+            hobbyTextField,
+            passwordTextFied,
+            changeButton
+        )
+    }
+    
+    override func setLayout() {
+        let safeArea = view.safeAreaLayoutGuide
+        contentStackView.snp.makeConstraints {
+            $0.top.equalTo(safeArea)
+            $0.horizontalEdges.equalTo(safeArea)
+        }
+    }
+    
+    @objc
+    func changeButtonTapped() {
+        guard let hobby = hobbyTextField.text,
+              let password = passwordTextFied.text
+        else { return }
+        
+        DispatchQueue.main.async {
+            self.userService.changeUser(
+                hobby: hobby,
+                password: password
+            ) { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success:
+                    self.dismiss(animated: true)
+                case let .failure(error):
+                    print("\(error.errorMessage)")
+                }
+            }
+        }
+    }
+}

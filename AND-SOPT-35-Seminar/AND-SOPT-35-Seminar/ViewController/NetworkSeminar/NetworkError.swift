@@ -19,6 +19,8 @@ enum NetworkError: Error {
     case expressionError
     
     case wrongPasswordError
+    case invalidTokenInHeader
+    case invalidToken
     
     var errorMessage: String {
         switch self {
@@ -42,6 +44,10 @@ enum NetworkError: Error {
             return "표현식 오류입니다"
         case .wrongPasswordError:
             return "잘못된 비밀번호입니다"
+        case .invalidTokenInHeader:
+            return "토큰이 없습니다"
+        case .invalidToken:
+            return "유효하지 않은 토큰입니다"
         }
     }
 }

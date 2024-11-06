@@ -22,7 +22,6 @@ final class HobbyViewController: BaseViewController {
     private let buttonConfig = UIButton.Configuration.filled()
     
     override func viewWillAppear(_ animated: Bool) {
-        //TODO: 나의 정보 (이름, 취미) API 호출
         
         DispatchQueue.main.async {
             self.userService.loadMyHobby() { [weak self] result in
@@ -40,6 +39,7 @@ final class HobbyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     override func initAttributes() {
@@ -49,7 +49,7 @@ final class HobbyViewController: BaseViewController {
             $0.spacing = 50
         }
         nameLabel.do {
-            $0.text = "이름 적기"
+            $0.text = "\(UserDefaults.standard.string(forKey: "name") ?? "")"
         }
         changeButton.do {
             $0.setTitle("정보 변경하기", for: .normal)
@@ -89,10 +89,25 @@ final class HobbyViewController: BaseViewController {
     
     @objc
     func changeButtonTapped() {
-        
+        let viewController = ChangeHobbyViewController()
+        self.present(viewController, animated: true)
     }
     @objc
     func searchButtonTapped() {
+        guard let num = Int(idTextField.text ?? "0")
+        else { return }
         
+        DispatchQueue.main.async {
+            self.userService.searchOtherHobby(num: num) { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case let .success(hobby):
+                    self.yourHobbyLabel.text = hobby
+                case let .failure(error):
+                    print("\(error.errorMessage)")
+                }
+            }
+        }
     }
 }

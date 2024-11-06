@@ -9,6 +9,7 @@ import Alamofire
 import Foundation
 
 final class LoginService {
+    
     func login(
         id: String,
         pw: String,
@@ -37,6 +38,9 @@ final class LoginService {
                 case .success:
                     let token = self.decodeToken(data: data)
                     completion(.success(token))
+                    // token ud에 저장
+                    UserDefaults.standard.set(token, forKey: "token")
+                    UserDefaults.standard.set(id, forKey: "name")
                     print(token)
                 case .failure:
                     let error = self.handleStatusCode(statusCode, data: data)
@@ -44,6 +48,27 @@ final class LoginService {
                 }
             }
     }
+    
+    //MARK: - Decode
+    
+    func decodeError(data: Data) -> String {
+        guard let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data)
+        else {
+            return ""
+        }
+        
+        return errorResponse.code
+    }
+    
+    func decodeToken(data: Data) -> String {
+        guard let response = try? JSONDecoder().decode(LoginResponse.self, from: data)
+        else {
+            return "error"
+        }
+        return response.result.token
+    }
+    
+    //MARK: - ErrorHandler
     
     func handleStatusCode(
         _ statusCode: Int,
@@ -62,22 +87,5 @@ final class LoginService {
         default:
             return .unknownError
         }
-    }
-    
-    func decodeError(data: Data) -> String {
-        guard let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data)
-        else {
-            return ""
-        }
-        
-        return errorResponse.code
-    }
-    
-    func decodeToken(data: Data) -> String {
-        guard let response = try? JSONDecoder().decode(LoginResponse.self, from: data)
-        else {
-            return "error"
-        }
-        return response.result.token
     }
 }

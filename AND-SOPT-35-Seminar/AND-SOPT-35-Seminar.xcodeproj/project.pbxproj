@@ -50,6 +50,8 @@
 		CB051C1D2CD7561900A3B223 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C1C2CD7561900A3B223 /* RegisterViewController.swift */; };
 		CB051C1F2CD7620100A3B223 /* HobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C1E2CD7620100A3B223 /* HobbyViewController.swift */; };
 		CB051C212CD7757000A3B223 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C202CD7757000A3B223 /* UserResponse.swift */; };
+		CB051C742CDA240D00A3B223 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C732CDA240D00A3B223 /* UserRequest.swift */; };
+		CB051C7A2CDBAA9700A3B223 /* ChangeHobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C792CDBAA9700A3B223 /* ChangeHobbyViewController.swift */; };
 		CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */; };
 		CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */; };
 		CB2E9CF02CB101C6007D0B9B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEF2CB101C6007D0B9B /* DetailViewController.swift */; };
@@ -98,6 +100,8 @@
 		CB051C1C2CD7561900A3B223 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CB051C1E2CD7620100A3B223 /* HobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyViewController.swift; sourceTree = "<group>"; };
 		CB051C202CD7757000A3B223 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		CB051C732CDA240D00A3B223 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		CB051C792CDBAA9700A3B223 /* ChangeHobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeHobbyViewController.swift; sourceTree = "<group>"; };
 		CB2E9CE82CB101C6007D0B9B /* AND-SOPT-35-Seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AND-SOPT-35-Seminar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				CB051C1C2CD7561900A3B223 /* RegisterViewController.swift */,
 				CB051C1E2CD7620100A3B223 /* HobbyViewController.swift */,
 				CB051C202CD7757000A3B223 /* UserResponse.swift */,
+				CB051C732CDA240D00A3B223 /* UserRequest.swift */,
+				CB051C792CDBAA9700A3B223 /* ChangeHobbyViewController.swift */,
 			);
 			path = NetworkSeminar;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				CB051C1D2CD7561900A3B223 /* RegisterViewController.swift in Sources */,
 				CB051BB02CBF802800A3B223 /* TitleView.swift in Sources */,
 				CB051BEE2CCFD5A900A3B223 /* AppViewController.swift in Sources */,
+				CB051C742CDA240D00A3B223 /* UserRequest.swift in Sources */,
 				CB051BDF2CCCC21E00A3B223 /* ChartViewController.swift in Sources */,
 				CB051BDB2CCCC18500A3B223 /* App.swift in Sources */,
 				CB051BE12CCCC25700A3B223 /* DownloadState.swift in Sources */,
@@ -378,6 +385,7 @@
 				CB051BEA2CCE803800A3B223 /* DividerView.swift in Sources */,
 				CB051BAE2CBF7E1200A3B223 /* UIStackView+Extension.swift in Sources */,
 				CB051BFC2CD1458800A3B223 /* AppCollectionCell.swift in Sources */,
+				CB051C7A2CDBAA9700A3B223 /* ChangeHobbyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

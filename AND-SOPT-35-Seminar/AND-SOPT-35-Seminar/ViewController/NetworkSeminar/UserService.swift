@@ -72,48 +72,16 @@ final class UserService {
         }
     }
     
-    
-    
-    /// 서버의 명세서 기반으로 에러 처리를 진행해줌
-    func handleStatusCode(
-        _ statusCode: Int,
-        data: Data
-    ) -> NetworkError {
-        let errorCode = decodeError(data: data)
-        switch (statusCode, errorCode) {
-        case (400, "00"):
-            return .invalidRequest
-        case (400, "01"):
-            return .expressionError
-        case (404, ""):
-            return .invalidURL
-        case (409, "00"):
-            return .duplicateError
-        case (500, ""):
-            return .serverError
-        default:
-            return .unknownError
-        }
-    }
-    
-    func decodeError(data: Data) -> String {
-        guard let errorResponse = try? JSONDecoder().decode(
-            ErrorResponse.self,
-            from: data
-        ) else { return "" }
-        return errorResponse.code
-    }
-    
     func loadMyHobby(completion: @escaping (Result<String, NetworkError>) -> Void) {
         let url = Environment.baseURL + "/user/my-hobby"
-        let token = ""
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
         
         AF.request(
             url,
             method: .get,
             parameters: nil,
             encoding: JSONEncoding.default,
-            headers: ["Authorization": "Bearer \(token)"]
+            headers: ["token": "\(token)"]
         )
         .validate()
         .response { [weak self] response in
@@ -128,6 +96,7 @@ final class UserService {
             switch response.result {
             case .success:
                 let hobby = self.decodeHobby(data: data)
+                UserDefaults.standard.setValue(hobby, forKey: "hobby")
                 completion(.success(hobby))
                 print(hobby)
             case .failure:
@@ -137,6 +106,87 @@ final class UserService {
         }
     }
     
+    func searchOtherHobby(
+        num: Int,
+        completion: @escaping (Result<String, NetworkError>) -> Void
+    ) {
+        let url = Environment.baseURL + "/user/\(num)/hobby"
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        
+        AF.request(
+            url,
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: ["token": "\(token)"]
+        )
+        .validate()
+        .response { [weak self] response in
+            guard let statusCode = response.response?.statusCode,
+                  let data = response.data,
+                  let self
+            else {
+                completion(.failure(.unknownError))
+                return
+            }
+            
+            switch response.result {
+            case .success:
+                let hobby = self.decodeHobby(data: data)
+                UserDefaults.standard.setValue(hobby, forKey: "hobby")
+                completion(.success(hobby))
+                print(hobby)
+            case .failure:
+                let error = self.handleStatusCode(statusCode, data: data)
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func changeUser(
+        hobby: String,
+        password: String, 
+        completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        let url = Environment.baseURL + "/user"
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let parameters = UserRequest(hobby: hobby, password: password)
+        
+        AF.request(
+            url,
+            method: .put,
+            parameters: parameters,
+            encoder: JSONParameterEncoder.default,
+            headers: ["token": "\(token)"]
+        )
+        .validate()
+        .response { [weak self] response in
+            guard let statusCode = response.response?.statusCode,
+                  let data = response.data,
+                  let self
+            else {
+                completion(.failure(.unknownError))
+                return
+            }
+            
+            switch response.result {
+            case .success:
+                completion(.success(true))
+            case .failure:
+                let error = self.handleStatusCode(statusCode, data: data)
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    //MARK: - Decode
+
+    func decodeError(data: Data) -> String {
+        guard let errorResponse = try? JSONDecoder().decode(
+            ErrorResponse.self,
+            from: data
+        ) else { return "" }
+        return errorResponse.code
+    }
     
     func decodeHobby(data: Data) -> String {
         guard let response = try? JSONDecoder().decode(Hobbyrequest.self, from: data)
@@ -144,6 +194,36 @@ final class UserService {
             return "error"
         }
         return response.result.hobby
+    }
+    
+    //MARK: - ErrorHandler
+    
+    /// 서버의 명세서 기반으로 에러 처리를 진행해줌
+    func handleStatusCode(
+        _ statusCode: Int,
+        data: Data
+    ) -> NetworkError {
+        let errorCode = decodeError(data: data)
+        switch (statusCode, errorCode) {
+        case (400, "00"):
+            return .invalidRequest
+        case (400, "01"):
+            return .expressionError
+        case (401, "00"):
+            return .invalidTokenInHeader
+        case (403, "00"):
+            return .invalidToken
+        case (404, ""):
+            return .invalidURL
+        case (404, "00"):
+            return .invalidRequest
+        case (409, "00"):
+            return .duplicateError
+        case (500, ""):
+            return .serverError
+        default:
+            return .unknownError
+        }
     }
     
 }
