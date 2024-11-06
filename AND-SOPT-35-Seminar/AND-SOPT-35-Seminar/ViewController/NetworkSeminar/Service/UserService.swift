@@ -21,7 +21,6 @@ final class UserService {
         completion: @escaping (Result<Bool, NetworkError>) -> Void
     ) {
         
-        /// baseURL + /user = http://211.188.53.75:8080/user
         let url = Environment.baseURL + "/user"
         
         /// 파라미터는 Request Body,

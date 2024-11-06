@@ -78,7 +78,6 @@ final class RegisterViewController: BaseViewController {
                 
                 switch result {
                 case .success:
-                    //TODO: 취미 검색 화면으로 이동 or 로그인 화면으로 이동
                     let nextViewController = LoginViewController()
                     navigationController?.pushViewController(nextViewController, animated: true)
                 case let .failure(error):

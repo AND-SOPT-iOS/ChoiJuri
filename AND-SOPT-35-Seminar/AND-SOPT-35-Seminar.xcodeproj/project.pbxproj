@@ -216,21 +216,45 @@
 		CB051C062CD5F13600A3B223 /* NetworkSeminar */ = {
 			isa = PBXGroup;
 			children = (
+				CB051C7D2CDBDCCD00A3B223 /* ViewController */,
+				CB051C7C2CDBDCBC00A3B223 /* Service */,
+				CB051C7B2CDBDCAF00A3B223 /* Entity */,
 				CB051C072CD5F26C00A3B223 /* Config.xcconfig */,
+			);
+			path = NetworkSeminar;
+			sourceTree = "<group>";
+		};
+		CB051C7B2CDBDCAF00A3B223 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
 				CB051C0A2CD5F3D200A3B223 /* NetworkError.swift */,
-				CB051C0E2CD5F94E00A3B223 /* UserService.swift */,
-				CB051C102CD5FEC200A3B223 /* LoginViewController.swift */,
-				CB051C122CD6009900A3B223 /* LoginService.swift */,
 				CB051C142CD6018F00A3B223 /* LoginRequest.swift */,
 				CB051C162CD60BBC00A3B223 /* LoginResponse.swift */,
+				CB051C202CD7757000A3B223 /* UserResponse.swift */,
+				CB051C732CDA240D00A3B223 /* UserRequest.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CB051C7C2CDBDCBC00A3B223 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CB051C0E2CD5F94E00A3B223 /* UserService.swift */,
+				CB051C122CD6009900A3B223 /* LoginService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CB051C7D2CDBDCCD00A3B223 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB051C102CD5FEC200A3B223 /* LoginViewController.swift */,
 				CB051C1A2CD74E7400A3B223 /* NetworkMainViewController.swift */,
 				CB051C1C2CD7561900A3B223 /* RegisterViewController.swift */,
 				CB051C1E2CD7620100A3B223 /* HobbyViewController.swift */,
-				CB051C202CD7757000A3B223 /* UserResponse.swift */,
-				CB051C732CDA240D00A3B223 /* UserRequest.swift */,
 				CB051C792CDBAA9700A3B223 /* ChangeHobbyViewController.swift */,
 			);
-			path = NetworkSeminar;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		CB2E9CDF2CB101C6007D0B9B = {
