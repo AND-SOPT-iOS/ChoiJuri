@@ -95,7 +95,7 @@ final class UserService {
             switch response.result {
             case .success:
                 let hobby = self.decodeHobby(data: data)
-                UserDefaults.standard.setValue(hobby, forKey: "hobby")
+                UserDefaults.standard.set(hobby, forKey: "hobby")
                 completion(.success(hobby))
                 print(hobby)
             case .failure:
@@ -132,7 +132,7 @@ final class UserService {
             switch response.result {
             case .success:
                 let hobby = self.decodeHobby(data: data)
-                UserDefaults.standard.setValue(hobby, forKey: "hobby")
+                UserDefaults.standard.set(hobby, forKey: "hobby")
                 completion(.success(hobby))
                 print(hobby)
             case .failure:
@@ -169,6 +169,7 @@ final class UserService {
             
             switch response.result {
             case .success:
+                UserDefaults.standard.set(hobby, forKey: "hobby")
                 completion(.success(true))
             case .failure:
                 let error = self.handleStatusCode(statusCode, data: data)

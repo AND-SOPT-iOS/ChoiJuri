@@ -18,6 +18,7 @@ final class HobbyViewController: BaseViewController {
     private let idTextField = UITextField()
     private let searchButton = UIButton()
     private let yourHobbyLabel = UILabel()
+    private let logoutButton = UIButton()
     
     private let buttonConfig = UIButton.Configuration.filled()
     
@@ -64,6 +65,12 @@ final class HobbyViewController: BaseViewController {
             $0.configuration = buttonConfig
             $0.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         }
+        logoutButton.do {
+            $0.setTitle("로그아웃", for: .normal)
+            $0.configuration = buttonConfig
+            $0.tintColor = .systemRed
+            $0.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+        }
     }
     
     override func addViews() {
@@ -74,7 +81,8 @@ final class HobbyViewController: BaseViewController {
             changeButton,
             idTextField,
             searchButton,
-            yourHobbyLabel
+            yourHobbyLabel,
+            logoutButton
         )
     }
     
@@ -109,5 +117,14 @@ final class HobbyViewController: BaseViewController {
                 }
             }
         }
+    }
+    
+    @objc
+    func logoutButtonTapped() {
+        UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "hobby")
+        UserDefaults.standard.removeObject(forKey: "name")
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
