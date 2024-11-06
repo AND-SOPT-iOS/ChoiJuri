@@ -49,7 +49,7 @@ final class HobbyViewController: BaseViewController {
             $0.spacing = 50
         }
         nameLabel.do {
-            $0.text = "\(UserDefaults.standard.string(forKey: "name") ?? "")"
+            $0.text = "\(UserDefaults.standard.string(forKey: "name") ?? "")의 취미는"
         }
         changeButton.do {
             $0.setTitle("정보 변경하기", for: .normal)
@@ -103,7 +103,7 @@ final class HobbyViewController: BaseViewController {
                 
                 switch result {
                 case let .success(hobby):
-                    self.yourHobbyLabel.text = hobby
+                    self.yourHobbyLabel.text = "\(num)번의 취미는 " + hobby
                 case let .failure(error):
                     print("\(error.errorMessage)")
                 }

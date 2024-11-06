@@ -73,7 +73,7 @@ final class FirstSectionAppView: BaseView {
     override func setLayout() {
         iconImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview().inset(20)
             $0.size.equalTo(40)
         }
         verticalStackView.snp.makeConstraints {

@@ -35,6 +35,7 @@ final class LoginViewController: BaseViewController {
         }
         passwordTextField.do {
             $0.placeholder = "비밀번호를 입력하세요"
+            $0.isSecureTextEntry = true
         }
         button.do {
             $0.setTitle("로그인하기", for: .normal)

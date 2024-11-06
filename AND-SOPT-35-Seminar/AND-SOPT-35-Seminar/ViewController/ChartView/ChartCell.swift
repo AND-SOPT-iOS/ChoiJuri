@@ -78,12 +78,12 @@ final class ChartCell: UITableViewCell {
     private func setLayout() {
         iconImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(10)
+            $0.leading.equalToSuperview().inset(10)
             $0.size.equalTo(50)
         }
         rankingLabel.snp.makeConstraints {
             $0.leading.equalTo(iconImageView.snp.trailing).offset(8)
-            $0.top.equalToSuperview().offset(18)
+            $0.top.equalToSuperview().inset(18)
         }
         verticalStackView.snp.makeConstraints {
             $0.leading.equalTo(rankingLabel.snp.trailing).offset(15)

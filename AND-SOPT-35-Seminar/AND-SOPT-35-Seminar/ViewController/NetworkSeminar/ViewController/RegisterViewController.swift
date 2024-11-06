@@ -35,6 +35,7 @@ final class RegisterViewController: BaseViewController {
         }
         pwTextField.do {
             $0.placeholder = "비밀번호를 입력해주세요"
+            $0.isSecureTextEntry = true
         }
         hobbyTextField.do {
             $0.placeholder = "취미를 입력해주세요"

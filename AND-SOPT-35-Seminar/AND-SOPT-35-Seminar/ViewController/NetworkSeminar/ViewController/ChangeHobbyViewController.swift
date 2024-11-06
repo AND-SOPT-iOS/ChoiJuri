@@ -27,7 +27,7 @@ final class ChangeHobbyViewController: BaseViewController {
         contentStackView.do {
             $0.axis = .vertical
             $0.alignment = .center
-            $0.spacing = 10
+            $0.spacing = 30
         }
         titleLabel.do {
             $0.text = "내 취미 변경하기"
@@ -37,6 +37,7 @@ final class ChangeHobbyViewController: BaseViewController {
         }
         passwordTextFied.do {
             $0.placeholder = "비밀번호를 입력하세요"
+            $0.isSecureTextEntry = true
         }
         changeButton.do {
             $0.setTitle("변경하기", for: .normal)
@@ -58,7 +59,7 @@ final class ChangeHobbyViewController: BaseViewController {
     override func setLayout() {
         let safeArea = view.safeAreaLayoutGuide
         contentStackView.snp.makeConstraints {
-            $0.top.equalTo(safeArea)
+            $0.top.equalTo(safeArea).inset(30)
             $0.horizontalEdges.equalTo(safeArea)
         }
     }
