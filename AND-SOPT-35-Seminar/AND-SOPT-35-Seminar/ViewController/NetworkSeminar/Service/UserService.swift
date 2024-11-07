@@ -163,6 +163,7 @@ final class UserService {
                   let data = response.data,
                   let self
             else {
+                // data가 nil이 뜸. . .
                 completion(.failure(.unknownError))
                 return
             }

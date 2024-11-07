@@ -81,9 +81,10 @@ final class ChangeHobbyViewController: BaseViewController {
                 
                 switch result {
                 case .success:
-                    self.dismiss(animated: true)
+                    navigationController?.popViewController(animated: true)
                 case let .failure(error):
                     print("\(error.errorMessage)")
+                    navigationController?.popViewController(animated: true)
                 }
             }
         }

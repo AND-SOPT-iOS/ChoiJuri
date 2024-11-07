@@ -98,7 +98,8 @@ final class HobbyViewController: BaseViewController {
     @objc
     func changeButtonTapped() {
         let viewController = ChangeHobbyViewController()
-        self.present(viewController, animated: true)
+//        self.present(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     @objc
     func searchButtonTapped() {
