@@ -33,11 +33,13 @@ final class ChangeHobbyViewController: BaseViewController {
             $0.text = "내 취미 변경하기"
         }
         hobbyTextField.do {
-            $0.placeholder = "\(UserDefaults.standard.string(forKey: "hobby") ?? "취미를 입력하세요")"
+            $0.placeholder = "\(UserDefaults.standard.string(forKey: "hobby") ?? "취미를 입력하세요(8자미만)")"
+            $0.delegate = self
         }
         passwordTextFied.do {
             $0.placeholder = "비밀번호를 입력하세요"
             $0.isSecureTextEntry = true
+            $0.delegate = self
         }
         changeButton.do {
             $0.setTitle("변경하기", for: .normal)
@@ -85,5 +87,21 @@ final class ChangeHobbyViewController: BaseViewController {
                 }
             }
         }
+    }
+}
+
+extension ChangeHobbyViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // 백스페이스 처리
+        if let char = string.cString(using: String.Encoding.utf8) {
+            // backspace는 \b의 문자를 가지고 UInt32의 형태로 변환하면 -92가 됨
+            let isBackSpace = strcmp(char, "\\b")
+            // 만약 backspace가 들어온다면 사용자의 입력 실행
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        guard textField.text!.count < 8 else { return false }
+        return true
     }
 }
