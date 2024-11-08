@@ -87,7 +87,6 @@
 		CB051BF92CD0D78C00A3B223 /* FourthSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthSectionView.swift; sourceTree = "<group>"; };
 		CB051BFB2CD1458800A3B223 /* AppCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionCell.swift; sourceTree = "<group>"; };
 		CB051BFE2CD2239C00A3B223 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
-		CB051C072CD5F26C00A3B223 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		CB051C082CD5F38300A3B223 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CB051C0A2CD5F3D200A3B223 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CB051C0E2CD5F94E00A3B223 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -219,7 +218,6 @@
 				CB051C7D2CDBDCCD00A3B223 /* ViewController */,
 				CB051C7C2CDBDCBC00A3B223 /* Service */,
 				CB051C7B2CDBDCAF00A3B223 /* Entity */,
-				CB051C072CD5F26C00A3B223 /* Config.xcconfig */,
 			);
 			path = NetworkSeminar;
 			sourceTree = "<group>";
@@ -429,7 +427,6 @@
 /* Begin XCBuildConfiguration section */
 		CB2E9CFA2CB101CC007D0B9B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB051C072CD5F26C00A3B223 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -493,7 +490,6 @@
 		};
 		CB2E9CFB2CB101CC007D0B9B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB051C072CD5F26C00A3B223 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
