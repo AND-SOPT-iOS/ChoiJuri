@@ -132,7 +132,6 @@ final class UserService {
             switch response.result {
             case .success:
                 let hobby = self.decodeHobby(data: data)
-                UserDefaults.standard.set(hobby, forKey: "hobby")
                 completion(.success(hobby))
                 print(hobby)
             case .failure:
@@ -163,7 +162,6 @@ final class UserService {
                   let data = response.data,
                   let self
             else {
-                // data가 nil이 뜸. . .
                 completion(.failure(.unknownError))
                 return
             }
