@@ -159,7 +159,6 @@ final class UserService {
         .validate()
         .response { [weak self] response in
             guard let statusCode = response.response?.statusCode,
-                  let data = response.data,
                   let self
             else {
                 completion(.failure(.unknownError))
@@ -171,6 +170,8 @@ final class UserService {
                 UserDefaults.standard.set(hobby, forKey: "hobby")
                 completion(.success(true))
             case .failure:
+                guard let data = response.data else { return }
+                        
                 let error = self.handleStatusCode(statusCode, data: data)
                 completion(.failure(error))
             }
