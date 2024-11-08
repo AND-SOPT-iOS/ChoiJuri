@@ -49,6 +49,9 @@
 		CB051C972CDE07CA00A3B223 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C892CDE07CA00A3B223 /* LoginViewController.swift */; };
 		CB051C982CDE07CA00A3B223 /* NetworkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C8A2CDE07CA00A3B223 /* NetworkMainViewController.swift */; };
 		CB051C992CDE07CA00A3B223 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C8B2CDE07CA00A3B223 /* RegisterViewController.swift */; };
+		CB051C9D2CDE087E00A3B223 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CB051C9C2CDE087E00A3B223 /* Alamofire */; };
+		CB051C9F2CDE095000A3B223 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051C9E2CDE095000A3B223 /* Environment.swift */; };
+		CB051CA12CDE27DF00A3B223 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB051CA02CDE27DF00A3B223 /* TabBarController.swift */; };
 		CB2E9CEC2CB101C6007D0B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */; };
 		CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */; };
 		CB2E9CF02CB101C6007D0B9B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E9CEF2CB101C6007D0B9B /* DetailViewController.swift */; };
@@ -96,6 +99,9 @@
 		CB051C892CDE07CA00A3B223 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB051C8A2CDE07CA00A3B223 /* NetworkMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMainViewController.swift; sourceTree = "<group>"; };
 		CB051C8B2CDE07CA00A3B223 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CB051C9A2CDE082F00A3B223 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		CB051C9E2CDE095000A3B223 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		CB051CA02CDE27DF00A3B223 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CB2E9CE82CB101C6007D0B9B /* AND-SOPT-35-Seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AND-SOPT-35-Seminar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2E9CEB2CB101C6007D0B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB2E9CED2CB101C6007D0B9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB051BA02CBF750800A3B223 /* SnapKit in Frameworks */,
+				CB051C9D2CDE087E00A3B223 /* Alamofire in Frameworks */,
 				CB051BA52CBF752E00A3B223 /* Then in Frameworks */,
 				CB051BA22CBF750800A3B223 /* SnapKit-Dynamic in Frameworks */,
 			);
@@ -146,6 +153,8 @@
 				CB051BC12CC01F4400A3B223 /* VersionRecordViewController.swift */,
 				CB051BC32CC023B800A3B223 /* ReviewListViewController.swift */,
 				CB051BC52CC0242C00A3B223 /* ReviewWriteViewController.swift */,
+				CB051C9E2CDE095000A3B223 /* Environment.swift */,
+				CB051CA02CDE27DF00A3B223 /* TabBarController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -243,6 +252,7 @@
 				CB051C832CDE07CA00A3B223 /* Entity */,
 				CB051C862CDE07CA00A3B223 /* Service */,
 				CB051C8C2CDE07CA00A3B223 /* ViewController */,
+				CB051C9A2CDE082F00A3B223 /* Config.xcconfig */,
 			);
 			path = NetworkSeminar;
 			sourceTree = "<group>";
@@ -295,6 +305,7 @@
 				CB051B9F2CBF750800A3B223 /* SnapKit */,
 				CB051BA12CBF750800A3B223 /* SnapKit-Dynamic */,
 				CB051BA42CBF752E00A3B223 /* Then */,
+				CB051C9C2CDE087E00A3B223 /* Alamofire */,
 			);
 			productName = "AND-SOPT-35-Seminar";
 			productReference = CB2E9CE82CB101C6007D0B9B /* AND-SOPT-35-Seminar.app */;
@@ -327,6 +338,7 @@
 			packageReferences = (
 				CB051B9E2CBF750800A3B223 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CB051BA32CBF752E00A3B223 /* XCRemoteSwiftPackageReference "Then" */,
+				CB051C9B2CDE087E00A3B223 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = CB2E9CE92CB101C6007D0B9B /* Products */;
 			projectDirPath = "";
@@ -367,6 +379,7 @@
 				CB051BC42CC023B800A3B223 /* ReviewListViewController.swift in Sources */,
 				CB051C962CDE07CA00A3B223 /* HobbyViewController.swift in Sources */,
 				CB051C952CDE07CA00A3B223 /* ChangeHobbyViewController.swift in Sources */,
+				CB051CA12CDE27DF00A3B223 /* TabBarController.swift in Sources */,
 				CB051C902CDE07CA00A3B223 /* NetworkError.swift in Sources */,
 				CB051BFA2CD0D78C00A3B223 /* FourthSectionView.swift in Sources */,
 				CB2E9CEE2CB101C6007D0B9B /* SceneDelegate.swift in Sources */,
@@ -387,6 +400,7 @@
 				CB051C972CDE07CA00A3B223 /* LoginViewController.swift in Sources */,
 				CB051C922CDE07CA00A3B223 /* UserResponse.swift in Sources */,
 				CB051BF62CD0C99A00A3B223 /* ChartCollectionCell.swift in Sources */,
+				CB051C9F2CDE095000A3B223 /* Environment.swift in Sources */,
 				CB051BF42CCFF54900A3B223 /* SecondSectionView.swift in Sources */,
 				CB051BB52CBF82FC00A3B223 /* BaseView.swift in Sources */,
 				CB051BC62CC0242C00A3B223 /* ReviewWriteViewController.swift in Sources */,
@@ -415,6 +429,7 @@
 /* Begin XCBuildConfiguration section */
 		CB2E9CFA2CB101CC007D0B9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB051C9A2CDE082F00A3B223 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -478,6 +493,7 @@
 		};
 		CB2E9CFB2CB101CC007D0B9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB051C9A2CDE082F00A3B223 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -626,6 +642,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		CB051C9B2CDE087E00A3B223 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -643,6 +667,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CB051BA32CBF752E00A3B223 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		CB051C9C2CDE087E00A3B223 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB051C9B2CDE087E00A3B223 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

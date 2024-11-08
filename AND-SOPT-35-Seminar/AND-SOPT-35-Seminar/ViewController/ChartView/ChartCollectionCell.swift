@@ -80,7 +80,7 @@ final class ChartCollectionCell: UICollectionViewCell {
         
         rankingLabel.snp.makeConstraints {
             $0.leading.equalTo(iconImageView.snp.trailing).offset(8)
-            $0.top.equalToSuperview().offset(12)
+            $0.top.equalToSuperview().inset(12)
         }
         
         verticalStackView.snp.makeConstraints {
