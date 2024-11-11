@@ -76,18 +76,23 @@ final class RegisterViewController: BaseViewController {
         else {
             return
         }
-        DispatchQueue.main.async {
-            self.userService.register(username: name, password: pw, hobby: hobby, completion: { [weak self] result in
+        
+        userService.register(
+            username: name,
+            password: pw,
+            hobby: hobby
+        ) { [weak self] result in
+            DispatchQueue.main.async {
                 guard let self = self else { return }
                 
                 switch result {
                 case .success:
                     let nextViewController = LoginViewController()
-                    navigationController?.pushViewController(nextViewController, animated: true)
+                    self.navigationController?.pushViewController(nextViewController, animated: true)
                 case let .failure(error):
-                    descriptionLabel.text = error.errorMessage
+                    self.descriptionLabel.text = error.errorMessage
                 }
-            })
+            }
         }
     }
 }

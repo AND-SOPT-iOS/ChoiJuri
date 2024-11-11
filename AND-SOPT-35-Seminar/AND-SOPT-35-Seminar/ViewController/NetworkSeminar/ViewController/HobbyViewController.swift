@@ -24,16 +24,14 @@ final class HobbyViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        DispatchQueue.main.async {
-            self.userService.loadMyHobby() { [weak self] result in
-                guard let self = self else { return }
-                
-                switch result {
-                    case let .success(hobby):
-                    myHobbyLabel.text = hobby
-                    case let .failure(error):
-                    myHobbyLabel.text = "\(error.errorMessage)"
-                }
+        userService.loadMyHobby() { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+                case let .success(hobby):
+                self.myHobbyLabel.text = hobby
+                case let .failure(error):
+                self.myHobbyLabel.text = "\(error.errorMessage)"
             }
         }
     }
@@ -98,7 +96,6 @@ final class HobbyViewController: BaseViewController {
     @objc
     func changeButtonTapped() {
         let viewController = ChangeHobbyViewController()
-//        self.present(viewController, animated: true)
         navigationController?.pushViewController(viewController, animated: true)
     }
     @objc
@@ -106,8 +103,8 @@ final class HobbyViewController: BaseViewController {
         guard let num = Int(idTextField.text ?? "0")
         else { return }
         
-        DispatchQueue.main.async {
-            self.userService.searchOtherHobby(num: num) { [weak self] result in
+        userService.searchOtherHobby(num: num) { [weak self] result in
+            DispatchQueue.main.async {
                 guard let self = self else { return }
                 
                 switch result {

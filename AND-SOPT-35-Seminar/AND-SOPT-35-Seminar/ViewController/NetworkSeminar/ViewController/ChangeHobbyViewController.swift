@@ -72,11 +72,11 @@ final class ChangeHobbyViewController: BaseViewController {
               let password = passwordTextFied.text
         else { return }
         
-        DispatchQueue.main.async {
-            self.userService.changeUser(
-                hobby: hobby,
-                password: password
-            ) { [weak self] result in
+        userService.changeUser(
+            hobby: hobby,
+            password: password
+        ) { [weak self] result in
+            DispatchQueue.main.async {
                 guard let self = self else { return }
                 
                 switch result {
