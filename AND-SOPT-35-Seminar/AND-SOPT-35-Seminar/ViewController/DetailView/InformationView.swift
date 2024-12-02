@@ -147,12 +147,12 @@ final class InformationView: BaseView {
         firstDivider.snp.makeConstraints {
             $0.width.equalTo(0.5)
             $0.height.equalToSuperview().inset(15)
-            $0.top.equalToSuperview().offset(20)
+            $0.top.equalToSuperview().inset(20)
         }
         secondDivider.snp.makeConstraints {
             $0.width.equalTo(0.5)
             $0.height.equalToSuperview().inset(15)
-            $0.top.equalToSuperview().offset(20)
+            $0.top.equalToSuperview().inset(20)
         }
     }
 }

@@ -101,7 +101,7 @@ final class PreviewView: BaseView {
             }
         }
         imageScrollView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().offset(5)
+            $0.leading.trailing.equalToSuperview().inset(5)
         }
         imageStackView.snp.makeConstraints {
             $0.edges.equalTo(imageScrollView)

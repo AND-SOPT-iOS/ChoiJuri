@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChartViewController: BaseViewController {
+final class ChartViewController: BaseViewController {
     
     private let tableView = UITableView()
     private let appList = App.mockData
