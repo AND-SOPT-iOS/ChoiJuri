@@ -12,7 +12,7 @@ struct SwiftUIPractice_SOPTApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                ChartView()
+                MainView()
             }
         }
     }

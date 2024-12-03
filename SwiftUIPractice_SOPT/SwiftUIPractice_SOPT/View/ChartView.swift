@@ -11,18 +11,18 @@ struct ChartView: View {
     let appList: [AppEntity] = AppEntity.appList
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                List(appList) { app in
+        VStack {
+            List(appList) { app in
+                NavigationLink(value: NavigationEnum.detail, label: {
                     ChartCell(app: app)
-                }
-                .listStyle(.plain)
-                .padding(.horizontal, -20)
-                
+                        .padding(.leading, 20)
+                })
             }
-            .navigationTitle("인기 차트")
+            .listStyle(.plain)
+            
             
         }
+        .navigationTitle("인기 차트")
     }
 }
 
