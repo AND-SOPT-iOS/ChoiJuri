@@ -19,13 +19,23 @@ struct ContentView: View {
         .task {
             do {
                 movieList = try await boxOfficeService
-                    .fetchBoxOfficeList(date: "20241212")
+                    .fetchBoxOfficeList(date: calculateDate())
                     .boxOfficeResult
                     .dailyBoxOfficeList
             } catch {
                 print("error!")
             }
         }
+        .navigationTitle("어제의 박스오피스")
+    }
+    
+    private func calculateDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        
+        return formatter.string(from: yesterday!)
     }
 }
 
