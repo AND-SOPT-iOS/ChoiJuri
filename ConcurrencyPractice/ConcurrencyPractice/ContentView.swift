@@ -11,22 +11,43 @@ struct ContentView: View {
     private let boxOfficeService = BoxOfficeService()
     
     @State private var movieList: [BoxOffice] = []
+    @State private var movie: Movie?
     
     var body: some View {
         List(movieList, id: \.self) { movie in
             BoxOfficeCell(movie: movie)
+                .onTapGesture {
+                    Task {
+                        self.movie = try await fetchOneMovie(code: movie.movieCd)
+                    }
+                }
+        }
+        .navigationDestination(item: $movie) { movie in
+            MovieDetailView(movie: movie)
         }
         .task {
             do {
-                movieList = try await boxOfficeService
-                    .fetchBoxOfficeList(date: calculateDate())
-                    .boxOfficeResult
-                    .dailyBoxOfficeList
+                movieList = try await fetchMovieList()
             } catch {
                 print("error!")
             }
         }
         .navigationTitle("어제의 박스오피스")
+    }
+    
+    //MARK: - Functions
+    private func fetchMovieList() async throws -> [BoxOffice] {
+        return try await boxOfficeService
+            .fetchBoxOfficeList(date: calculateDate())
+            .boxOfficeResult
+            .dailyBoxOfficeList
+    }
+    
+    private func fetchOneMovie(code: String) async throws -> Movie {
+        return try await boxOfficeService
+            .fetchMovieInfo(code: code)
+            .movieInfoResult
+            .movieInfo
     }
     
     private func calculateDate() -> String {

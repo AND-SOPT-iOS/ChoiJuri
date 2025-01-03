@@ -11,6 +11,7 @@ import Moya
 
 protocol BoxOfficeServiceProtocol {
     func fetchBoxOfficeList(date: String) async throws -> BoxOfficeResponse
+    func fetchMovieInfo(code: String) async throws -> MovieResponse
 }
 
 final class BoxOfficeService: BoxOfficeServiceProtocol {
@@ -24,6 +25,24 @@ final class BoxOfficeService: BoxOfficeServiceProtocol {
                 case .success(let response):
                     do {
                         let data = try JSONDecoder().decode(BoxOfficeResponse.self, from: response.data)
+                        continuation.resume(returning: data)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
+    
+    func fetchMovieInfo(code: String) async throws -> MovieResponse {
+        return try await withCheckedThrowingContinuation { continuation in
+            provider.request(.searchMovieInfo(code: code)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let data = try JSONDecoder().decode(MovieResponse.self, from: response.data)
                         continuation.resume(returning: data)
                     } catch {
                         continuation.resume(throwing: error)

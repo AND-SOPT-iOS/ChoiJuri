@@ -11,6 +11,7 @@ import Moya
 
 enum BaseAPI {
     case searchDailyBoxOfficeList(date: String)
+    case searchMovieInfo(code: String)
 }
 
 extension BaseAPI: TargetType {
@@ -33,20 +34,22 @@ extension BaseAPI: TargetType {
         
         switch self {
         case .searchDailyBoxOfficeList(let date):
-            return "/searchDailyBoxOfficeList\(keyString)&targetDt=\(date)"
+            return "/boxoffice/searchDailyBoxOfficeList\(keyString)&targetDt=\(date)"
+        case .searchMovieInfo(let code):
+            return "/movie/searchMovieInfo\(keyString)&movieCd=\(code)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .searchDailyBoxOfficeList:
+        case .searchDailyBoxOfficeList, .searchMovieInfo:
             .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .searchDailyBoxOfficeList:
+        case .searchDailyBoxOfficeList, .searchMovieInfo:
             .requestPlain
         }
     }

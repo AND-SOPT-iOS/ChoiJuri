@@ -21,4 +21,5 @@ struct BoxOffice: Decodable, Hashable {
     let rank: String
     let movieNm: String
     let openDt: String
+    let movieCd: String
 }

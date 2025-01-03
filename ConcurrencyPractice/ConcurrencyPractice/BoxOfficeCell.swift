@@ -20,5 +20,12 @@ struct BoxOfficeCell: View {
 }
 
 #Preview {
-    BoxOfficeCell(movie: .init(rank: "1", movieNm: "하얼빈", openDt: "2024-01-01"))
+    BoxOfficeCell(
+        movie: .init(
+            rank: "1",
+            movieNm: "하얼빈",
+            openDt: "2024-01-01",
+            movieCd: ""
+        )
+    )
 }
