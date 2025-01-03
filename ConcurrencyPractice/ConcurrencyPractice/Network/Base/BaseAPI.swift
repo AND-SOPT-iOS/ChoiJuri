@@ -29,10 +29,11 @@ extension BaseAPI: TargetType {
         else {
             fatalError("key error!")
         }
+        let keyString = ".json?key=\(key)"
         
         switch self {
         case .searchDailyBoxOfficeList(let date):
-            return "/searchDailyBoxOfficeList.json?key=\(key)&targetDt=\(date)"
+            return "/searchDailyBoxOfficeList\(keyString)&targetDt=\(date)"
         }
     }
     
