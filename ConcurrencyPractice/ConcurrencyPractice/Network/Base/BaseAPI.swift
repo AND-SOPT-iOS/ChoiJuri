@@ -16,14 +16,11 @@ enum BaseAPI {
 extension BaseAPI: TargetType {
     
     var baseURL: URL {
-        switch self {
-        case .searchDailyBoxOfficeList:
-            guard let urlString = Bundle.main.infoDictionary?["BASE_URL"] as? String,
-                  let url = URL(string: urlString) else {
-                fatalError("url error!")
-            }
-            return url
+        guard let urlString = Bundle.main.infoDictionary?["BASE_URL"] as? String,
+              let url = URL(string: urlString) else {
+            fatalError("url error!")
         }
+        return url
     }
     
     var path: String {
