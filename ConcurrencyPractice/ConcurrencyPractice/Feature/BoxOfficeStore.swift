@@ -9,7 +9,8 @@ import Foundation
 
 // 어쩌면 뷰모델이랑 비슷한 역할인데
 // 변수 부분을 state로 관리하고
-// 함수 부분을 intent로 관리하는 느낌이랄까 ? ? ? 
+// 함수 부분을 intent로 관리하는 느낌이랄까 ? ? ?
+@MainActor
 final class BoxOfficeStore: ObservableObject {
     
     @Published private(set) var state: BoxOfficeState

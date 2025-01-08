@@ -10,17 +10,26 @@ import Foundation
 import Moya
 
 protocol BoxOfficeServiceProtocol {
-    func fetchBoxOfficeList(date: String) async throws -> BoxOfficeResponse
+    func fetchBoxOfficeList() async throws -> BoxOfficeResponse
     func fetchMovieInfo(code: String) async throws -> MovieResponse
 }
 
-final class BoxOfficeService: BoxOfficeServiceProtocol {
+actor BoxOfficeService: BoxOfficeServiceProtocol {
     
     private let provider = MoyaProvider<BaseAPI>(plugins: [MoyaLoggingPlugin()])
     
-    func fetchBoxOfficeList(date: String) async throws -> BoxOfficeResponse {
+    private func calculateDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        
+        return formatter.string(from: yesterday!)
+    }
+    
+    func fetchBoxOfficeList() async throws -> BoxOfficeResponse {
         return try await withCheckedThrowingContinuation { continuation in
-            provider.request(.searchDailyBoxOfficeList(date: date)) { result in
+            provider.request(.searchDailyBoxOfficeList(date: calculateDate())) { result in
                 switch result {
                 case .success(let response):
                     do {
