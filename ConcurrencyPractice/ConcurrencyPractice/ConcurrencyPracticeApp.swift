@@ -9,10 +9,16 @@ import SwiftUI
 
 @main
 struct ConcurrencyPracticeApp: App {
+    @StateObject private var navigationManager = NavigationManager()
+    
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
+            NavigationStack(path: $navigationManager.path) {
                 ContentView()
+                    .navigationDestination(for: ViewType.self) { view in
+                        navigationManager.build(view)
+                    }
+                    .environmentObject(navigationManager)
             }
         }
     }
