@@ -26,10 +26,3 @@ enum BoxOfficeIntent {
     case onAppear
     case movieSelected(String)
 }
-
-// 사용자의 행동에 따른 비즈니스 로직?과 발생할 수 있는 효과?
-enum BoxOfficeEffect {
-    case fetchBoxOffices
-    case fetchMovie(Int)
-    case showError(String)
-}
