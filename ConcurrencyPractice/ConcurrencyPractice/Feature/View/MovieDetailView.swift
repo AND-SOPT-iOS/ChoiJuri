@@ -8,33 +8,33 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    let movie: Movie
+    @StateObject private var store = BoxOfficeStore()
+    
+    let movieCode: String
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("\(movie.movieNm) (\(movie.openDt))")
-            Text("상영시간: \(movie.showTm)분")
-            HStack {
-                Text("장르: ")
-                ForEach(movie.genres, id: \.self) { genre in
-                    Text("\(genre.genreNm) ")
+        ZStack {
+            VStack(alignment: .leading) {
+                Text("\(store.state.movie.movieNm) (\(store.state.movie.openDt))")
+                Text("상영시간: \(store.state.movie.showTm)분")
+                HStack {
+                    Text("장르: ")
+                    ForEach(store.state.movie.genres, id: \.self) { genre in
+                        Text("\(genre.genreNm) ")
+                    }
                 }
             }
+            
+            if store.state.isLoading {
+                ProgressView()
+            }
+        }
+        .onAppear {
+            store.dispatch(.movieSelected(movieCode))
         }
     }
 }
 
 #Preview {
-    MovieDetailView(
-        movie: .init(
-            movieCd: "",
-            movieNm: "광해",
-            showTm: "131",
-            openDt: "2020-11-11",
-            genres: [
-                .init(genreNm: "드라마"),
-                .init(genreNm: "액션")
-            ]
-        )
-    )
+    MovieDetailView(movieCode: "")
 }

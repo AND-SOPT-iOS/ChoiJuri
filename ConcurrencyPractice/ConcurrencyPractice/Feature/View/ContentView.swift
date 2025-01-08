@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-//    private let boxOfficeService = BoxOfficeService()
-//    
-//    @State private var movieList: [BoxOffice] = []
-//    @State private var movie: Movie?
     
     @StateObject private var store: BoxOfficeStore = BoxOfficeStore()
+    @EnvironmentObject private var navigationManager: NavigationManager
     
     var body: some View {
         ZStack {
@@ -21,7 +18,7 @@ struct ContentView: View {
             List(store.state.movies, id: \.self) { movie in
                 BoxOfficeCell(movie: movie)
                     .onTapGesture {
-                        store.dispatch(.movieSelected(movie.movieCd))
+                        navigationManager.dispatch(.push(.detail(code: movie.movieCd)))
                     }
             }
             
@@ -34,9 +31,6 @@ struct ContentView: View {
             store.dispatch(.onAppear)
         }
         .navigationTitle("어제의 박스오피스")
-//        .navigationDestination(item: $store.state.movie) { movie in
-//            MovieDetailView(movie: movie)
-//        }
     }
 }
 
