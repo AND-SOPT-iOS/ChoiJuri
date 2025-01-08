@@ -10,8 +10,8 @@ import Foundation
 import Moya
 
 protocol BoxOfficeServiceProtocol {
-    func fetchBoxOfficeList() async throws -> BoxOfficeResponse
-    func fetchMovieInfo(code: String) async throws -> MovieResponse
+    func fetchBoxOfficeList() async throws -> [BoxOffice]
+    func fetchMovieInfo(code: String) async throws -> Movie
 }
 
 actor BoxOfficeService: BoxOfficeServiceProtocol {
@@ -27,13 +27,16 @@ actor BoxOfficeService: BoxOfficeServiceProtocol {
         return formatter.string(from: yesterday!)
     }
     
-    func fetchBoxOfficeList() async throws -> BoxOfficeResponse {
+    func fetchBoxOfficeList() async throws -> [BoxOffice] {
         return try await withCheckedThrowingContinuation { continuation in
             provider.request(.searchDailyBoxOfficeList(date: calculateDate())) { result in
                 switch result {
                 case .success(let response):
                     do {
-                        let data = try JSONDecoder().decode(BoxOfficeResponse.self, from: response.data)
+                        let data = try JSONDecoder()
+                            .decode(BoxOfficeResponse.self, from: response.data)
+                            .boxOfficeResult
+                            .dailyBoxOfficeList
                         continuation.resume(returning: data)
                     } catch {
                         continuation.resume(throwing: error)
@@ -45,13 +48,16 @@ actor BoxOfficeService: BoxOfficeServiceProtocol {
         }
     }
     
-    func fetchMovieInfo(code: String) async throws -> MovieResponse {
+    func fetchMovieInfo(code: String) async throws -> Movie {
         return try await withCheckedThrowingContinuation { continuation in
             provider.request(.searchMovieInfo(code: code)) { result in
                 switch result {
                 case .success(let response):
                     do {
-                        let data = try JSONDecoder().decode(MovieResponse.self, from: response.data)
+                        let data = try JSONDecoder()
+                            .decode(MovieResponse.self, from: response.data)
+                            .movieInfoResult
+                            .movieInfo
                         continuation.resume(returning: data)
                     } catch {
                         continuation.resume(throwing: error)

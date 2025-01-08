@@ -31,10 +31,7 @@ final class BoxOfficeStore: ObservableObject {
                 do {
                     state.isLoading = true
                     
-                    state.movies = try await service
-                        .fetchBoxOfficeList()
-                        .boxOfficeResult
-                        .dailyBoxOfficeList
+                    state.movies = try await service.fetchBoxOfficeList()
                     
                     state.isLoading = false
                 } catch {
@@ -46,10 +43,7 @@ final class BoxOfficeStore: ObservableObject {
                 do {
                     state.isLoading = true
                     
-                    state.movie = try await service
-                        .fetchMovieInfo(code: code)
-                        .movieInfoResult
-                        .movieInfo
+                    state.movie = try await service.fetchMovieInfo(code: code)
                     
                     state.isLoading = false
                 } catch {
